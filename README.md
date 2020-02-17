@@ -51,3 +51,22 @@ dev-raven是一个处理各类开发回调的接口，它可以将github、gitla
 https://raven.iyjian.workers.dev?from=gitlab&to=***以上你获得的微信群hook地址***
 
 然后将以上参数填入gitlab的webhook地址即可。
+
+
+用做通知的公众号模板（我选了两个，防止封模板）: 
+
+系统运行简报 OPENTM401692387 wxp18BgdHnOrt1rb6PPYH-yZYtCVjczIdzDxnDMwORk
+
+{{first.DATA}}
+系统名称：{{keyword1.DATA}}
+简报内容：{{keyword2.DATA}}
+发布时间：{{keyword3.DATA}}
+{{remark.DATA}}
+
+报告生成通知 OPENTM411640916 SLX5hylOR8iMvPSm3F-fgXGOiKW0kdVKMOkCK1B7S7g
+
+{{first.DATA}}
+获取路径：{{keyword1.DATA}}
+报告期：{{keyword2.DATA}}
+{{remark.DATA}}
+
