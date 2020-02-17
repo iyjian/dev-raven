@@ -1,0 +1,7 @@
+node_modules/
+.idea/
+logs/*.log
+dist/*
+!dist/.keep
+wrangler.toml
+worker/

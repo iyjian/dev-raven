@@ -1,0 +1,85 @@
+{
+  "object_kind": "issue",
+  "event_type": "issue",
+  "user": {
+    "name": "shijingxian",
+    "username": "shijingxian",
+    "avatar_url": "http://120.132.18.199/uploads/-/system/user/avatar/12/avatar.png"
+  },
+  "project": {
+    "id": 25,
+    "name": "Schwifty",
+    "description": "",
+    "web_url": "http://120.132.18.199/shijingxian/Schwifty",
+    "avatar_url": null,
+    "git_ssh_url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "git_http_url": "http://120.132.18.199/shijingxian/Schwifty.git",
+    "namespace": "shijingxian",
+    "visibility_level": 0,
+    "path_with_namespace": "shijingxian/Schwifty",
+    "default_branch": "master",
+    "ci_config_path": null,
+    "homepage": "http://120.132.18.199/shijingxian/Schwifty",
+    "url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "ssh_url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "http_url": "http://120.132.18.199/shijingxian/Schwifty.git"
+  },
+  "object_attributes": {
+    "author_id": 12,
+    "closed_at": null,
+    "confidential": false,
+    "created_at": "2019-12-20 02:24:27 UTC",
+    "description": "teamwork",
+    "due_date": null,
+    "id": 62,
+    "iid": 1,
+    "last_edited_at": "2019-12-20 12:35:54 UTC",
+    "last_edited_by_id": 12,
+    "milestone_id": null,
+    "moved_to_id": null,
+    "project_id": 25,
+    "relative_position": 1073742323,
+    "state": "opened",
+    "time_estimate": 0,
+    "title": "the first issue",
+    "updated_at": "2019-12-20 12:35:54 UTC",
+    "updated_by_id": 12,
+    "weight": null,
+    "url": "http://120.132.18.199/shijingxian/Schwifty/issues/1",
+    "total_time_spent": 0,
+    "human_total_time_spent": null,
+    "human_time_estimate": null,
+    "assignee_ids": [],
+    "assignee_id": null,
+    "action": "update"
+  },
+  "labels": [],
+  "changes": {
+    "last_edited_at": {
+      "previous": null,
+      "current": "2019-12-20 12:35:54 UTC"
+    },
+    "last_edited_by_id": {
+      "previous": null,
+      "current": 12
+    },
+    "title": {
+      "previous": "骚呢兄弟",
+      "current": "the first issue"
+    },
+    "updated_at": {
+      "previous": "2019-12-20 12:27:24 UTC",
+      "current": "2019-12-20 12:35:54 UTC"
+    },
+    "updated_by_id": {
+      "previous": null,
+      "current": 12
+    }
+  },
+  "repository": {
+    "name": "Schwifty",
+    "url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "description": "",
+    "homepage": "http://120.132.18.199/shijingxian/Schwifty"
+  }
+}

@@ -1,0 +1,5 @@
+name = "test"
+type = "webpack"
+account_id = "76cb***************c775"
+workers_dev = true
+webpack_config = "build/webpack.prod.conf.js"

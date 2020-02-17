@@ -1,0 +1,41 @@
+{
+  "name": "cloudfunk",
+  "version": "0.0.1",
+  "description": "a gitlab/hub webhook message parser",
+  "main": "dist/main.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cloudflare/wrangler": "^1.7.0",
+    "chalk": "^3.0.0",
+    "ora": "^4.0.3",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "build": "node build/build.js",
+    "release": "npx wrangler publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SSSensation/cloudFunk.git"
+  },
+  "keywords": [
+    "cloudflare",
+    "github",
+    "gitlab",
+    "webhook"
+  ],
+  "author": "cloudfunk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SSSensation/cloudFunk/issues"
+  },
+  "homepage": "https://github.com/SSSensation/cloudFunk#readme"
+}

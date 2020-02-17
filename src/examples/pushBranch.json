@@ -1,0 +1,132 @@
+{
+  "object_kind": "push",
+  "event_name": "push",
+  "before": "0000000000000000000000000000000000000000",
+  "after": "497bb72775819ff0deb90294b262201ff1103501",
+  "ref": "refs/heads/great",
+  "checkout_sha": "497bb72775819ff0deb90294b262201ff1103501",
+  "message": null,
+  "user_id": 12,
+  "user_name": "shijingxian",
+  "user_username": "shijingxian",
+  "user_email": "",
+  "user_avatar": "http://120.132.18.199/uploads/-/system/user/avatar/12/avatar.png",
+  "project_id": 25,
+  "project": {
+    "id": 25,
+    "name": "Schwifty",
+    "description": "",
+    "web_url": "http://120.132.18.199/shijingxian/Schwifty",
+    "avatar_url": null,
+    "git_ssh_url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "git_http_url": "http://120.132.18.199/shijingxian/Schwifty.git",
+    "namespace": "shijingxian",
+    "visibility_level": 0,
+    "path_with_namespace": "shijingxian/Schwifty",
+    "default_branch": "master",
+    "ci_config_path": null,
+    "homepage": "http://120.132.18.199/shijingxian/Schwifty",
+    "url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "ssh_url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "http_url": "http://120.132.18.199/shijingxian/Schwifty.git"
+  },
+  "commits": [],
+  "total_commits_count": 0,
+  "push_options": [],
+  "repository": {
+    "name": "Schwifty",
+    "url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "description": "",
+    "homepage": "http://120.132.18.199/shijingxian/Schwifty",
+    "git_http_url": "http://120.132.18.199/shijingxian/Schwifty.git",
+    "git_ssh_url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "visibility_level": 0
+  }
+}
+
+{
+  "object_kind": "push",
+  "event_name": "push",
+  "before": "497bb72775819ff0deb90294b262201ff1103501",
+  "after": "20627d6f5b7f1f8f230e6e7de95abd0fd2f42c7a",
+  "ref": "refs/heads/great",
+  "checkout_sha": "20627d6f5b7f1f8f230e6e7de95abd0fd2f42c7a",
+  "message": null,
+  "user_id": 12,
+  "user_name": "shijingxian",
+  "user_username": "shijingxian",
+  "user_email": "",
+  "user_avatar": "http://120.132.18.199/uploads/-/system/user/avatar/12/avatar.png",
+  "project_id": 25,
+  "project": {
+    "id": 25,
+    "name": "Schwifty",
+    "description": "",
+    "web_url": "http://120.132.18.199/shijingxian/Schwifty",
+    "avatar_url": null,
+    "git_ssh_url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "git_http_url": "http://120.132.18.199/shijingxian/Schwifty.git",
+    "namespace": "shijingxian",
+    "visibility_level": 0,
+    "path_with_namespace": "shijingxian/Schwifty",
+    "default_branch": "master",
+    "ci_config_path": null,
+    "homepage": "http://120.132.18.199/shijingxian/Schwifty",
+    "url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "ssh_url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "http_url": "http://120.132.18.199/shijingxian/Schwifty.git"
+  },
+  "commits": [
+    {
+      "id": "20627d6f5b7f1f8f230e6e7de95abd0fd2f42c7a",
+      "message": "test this branch\n",
+      "timestamp": "2019-12-20T18:07:12Z",
+      "url": "http://120.132.18.199/shijingxian/Schwifty/commit/20627d6f5b7f1f8f230e6e7de95abd0fd2f42c7a",
+      "author": {
+        "name": "sssensational",
+        "email": "sxsensational@gmail.com"
+      },
+      "added": [
+        "Today/test.js"
+      ],
+      "modified": [
+        "Today/server.js"
+      ],
+      "removed": [
+        "Today/before.js",
+        "Today/before2.js"
+      ]
+    },
+    {
+      "id": "123456785b7f1f8f230e6e7de95abd0fd2f42c7a",
+      "message": "test commit 2",
+      "timestamp": "2019-12-20T18:07:12Z",
+      "url": "http://120.132.18.199/shijingxian/Schwifty/commit/20627d6f5b7f1f8f230e6e7de95abd0fd2f42c7a",
+      "author": {
+        "name": "sssensational",
+        "email": "sxsensational@gmail.com"
+      },
+      "added": [
+        "Today/test.js"
+      ],
+      "modified": [
+        "Today/server.js"
+      ],
+      "removed": [
+        "Today/before.js",
+        "Today/before2.js"
+      ]
+    }
+  ],
+  "total_commits_count": 1,
+  "push_options": [],
+  "repository": {
+    "name": "Schwifty",
+    "url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "description": "",
+    "homepage": "http://120.132.18.199/shijingxian/Schwifty",
+    "git_http_url": "http://120.132.18.199/shijingxian/Schwifty.git",
+    "git_ssh_url": "git@120.132.18.199:shijingxian/Schwifty.git",
+    "visibility_level": 0
+  }
+}
