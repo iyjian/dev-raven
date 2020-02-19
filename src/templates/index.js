@@ -1,5 +1,6 @@
 import gitlabIssue from './gitlab/issue'
-// import github from './github'
+
+import githubPush from './github/push'
 
 // export default {
 //   gitlab: {
@@ -10,5 +11,11 @@ import gitlabIssue from './gitlab/issue'
 export const gitlab = {
   template: {
     issue: gitlabIssue
+  }
+}
+
+export const github = {
+  template: {
+    push: githubPush
   }
 }

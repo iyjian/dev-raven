@@ -50,6 +50,10 @@ const router = async (req) => {
 
   } else if (req.method === 'POST' && from === 'github') {
 
+    const event = req.headers.get('X-GitHub-Event')
+    const data = await req.json()
+    console.log(data)
+    message = github.parse(data, event)
 
   } else if (req.method === 'POST' && from === 'aliyundocker') {
 
@@ -88,7 +92,12 @@ const router = async (req) => {
         })
       })
     } else {
+      // 默认是微信群的hook地址
       message = encodeURIComponent(message)
+      // console.log(`${to}?content=${message}`)
+      await fetch(`${to}?content=${message}`, {
+        method: 'GET'
+      })
     }
     return new Response('dummy', {status: 200})
   } else {

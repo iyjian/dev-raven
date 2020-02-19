@@ -49,6 +49,7 @@ dev-raven是一个处理各类开发回调的接口，它可以将github、gitla
 
 
 https://raven.iyjian.workers.dev?from=gitlab&to=***以上你获得的微信群hook地址***
+https://raven.iyjian.workers.dev?from=github&to=https://wx.zhongzhengtx.com/group/hF4Aqyq
 
 然后将以上参数填入gitlab的webhook地址即可。
 
