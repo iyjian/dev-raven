@@ -1,4 +1,4 @@
-import {github} from "./../templates"
+import { github } from "./../templates"
 
 const parse = (body, event) => {
   /**

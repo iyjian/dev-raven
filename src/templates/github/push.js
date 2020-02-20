@@ -1,7 +1,8 @@
 export default (data) => {
    
-  let message = `
-    [github] [${data.repository.full_name}]
+  let message = `[github]
+
+    repository: ${data.repository.full_name}
 
     ${data.pusher.name} pushed on branch ${data.ref} with the following commit(s):
     

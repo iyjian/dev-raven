@@ -1,10 +1,19 @@
 import gitlabIssue from './gitlab/issue'
 
 import githubPush from './github/push'
+import githubPing from './github/ping'
 
 // export default {
 //   gitlab: {
-//     issue: gitlabIssue
+//     template: {
+//       issue: gitlabIssue
+//     }
+//   },
+//   github: {
+//     template: {
+//       push: githubPush,
+//       ping: githubPing
+//     }
 //   }
 // }
 
@@ -14,8 +23,10 @@ export const gitlab = {
   }
 }
 
+
 export const github = {
   template: {
-    push: githubPush
+    push: githubPush,
+    ping: githubPing
   }
 }
