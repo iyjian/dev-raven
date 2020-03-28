@@ -52,9 +52,8 @@ const router = async (req) => {
 
     const event = req.headers.get('X-GitHub-Event')
     const data = await req.json()
-    console.log(data)
-    message = github.parse(data, event)
-
+    message = github.parse(data, 'push')
+    console.log(message)
   } else if (req.method === 'POST' && from === 'aliyundocker') {
 
     const data = await req.json()
