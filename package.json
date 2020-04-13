@@ -1,41 +1,67 @@
 {
-  "name": "cloudfunk",
+  "name": "dev-raven-new",
   "version": "0.0.1",
-  "description": "a gitlab/hub webhook message parser",
-  "main": "dist/main.js",
-  "directories": {
-    "doc": "docs",
-    "example": "examples"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@cloudflare/wrangler": "^1.7.0",
-    "chalk": "^3.0.0",
-    "ora": "^4.0.3",
-    "ts-node": "^8.6.2",
-    "typescript": "^3.7.5",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
-  },
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
   "scripts": {
-    "build": "node build/build.js",
-    "release": "npx wrangler publish",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SSSensation/cloudFunk.git"
+  "dependencies": {
+    "@nestjs/common": "^7.0.0",
+    "@nestjs/core": "^7.0.0",
+    "@nestjs/platform-express": "^7.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^6.5.4"
   },
-  "keywords": [
-    "cloudflare",
-    "github",
-    "gitlab",
-    "webhook"
-  ],
-  "author": "cloudfunk",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SSSensation/cloudFunk/issues"
+  "devDependencies": {
+    "@nestjs/cli": "^7.0.0",
+    "@nestjs/schematics": "^7.0.0",
+    "@nestjs/testing": "^7.0.0",
+    "@types/express": "^4.17.3",
+    "@types/jest": "25.1.4",
+    "@types/node": "^13.9.1",
+    "@types/supertest": "^2.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "supertest": "^4.0.2",
+    "ts-jest": "25.2.1",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.7.4"
   },
-  "homepage": "https://github.com/SSSensation/cloudFunk#readme"
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
 }
