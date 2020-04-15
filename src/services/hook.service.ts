@@ -1,12 +1,13 @@
-import { Injectable, HttpService, Logger } from '@nestjs/common';
+import { Injectable, HttpService, Logger, Inject } from '@nestjs/common';
 import { GitLabHookService } from './gitlab.service';
 import { AliyunDockerHookService } from "./aliyun.service";
 import { GitHubHookService } from "./github.service";
 import { HookParse } from "../interfaces";
 import { HookFrom } from '../interfaces';
-import { Observable, empty, of } from "rxjs";
+import { Observable, empty } from "rxjs";
 import { UrlService } from './url.service';
-import { tap, switchMap, retry, catchError } from "rxjs/operators";
+import { catchError, retry } from "rxjs/operators";
+import { CONFIG_PROIVDE } from '../config';
 
 @Injectable()
 export class HookService {
@@ -16,6 +17,7 @@ export class HookService {
     private readonly gitHubHookService: GitHubHookService,
     private readonly aliyunDockerHookService: AliyunDockerHookService,
     private readonly http: HttpService,
+    @Inject(CONFIG_PROIVDE) private readonly config,
     private readonly urlService: UrlService,
   ) {
     this.services = new Map<HookFrom, HookParse>()
@@ -29,13 +31,41 @@ export class HookService {
   }
 
   toHook(to: string, msg: string): Observable<any> {
-    return to ? this.urlService.shortenUrl(to).pipe(
-      switchMap((data) => this.http.post(data, msg).pipe(
-        catchError(err => {
-          Logger.error(err)
-          return empty()
-        })
-      ))
-    ) : empty()
+    if (this._isWechatWork(to)) {
+      return this._sendWechatWorkCallback(to, msg)
+    } else {
+      return this._sendDefaultCallback(to, msg)
+    }
+  }
+
+  private _isWechatWork(to: string) {
+    return to.includes(this.config.wechatWorkHost)
+  }
+
+  private _sendDefaultCallback(to: string, msg: string): Observable<any> {
+    return this.http.get(to, { params: {
+      content: encodeURIComponent(msg)
+    }}).pipe(
+      retry(3),
+      catchError(err => {
+        Logger.error(err)
+        return empty()
+      })
+    )
+  }
+
+  private _sendWechatWorkCallback(to: string, msg: string): Observable<any> {
+    return this.http.post(to, {
+      msgtype: 'text',
+      text: {
+        content: msg,
+      },
+    }).pipe(
+      retry(3),
+      catchError(err => {
+        Logger.error(err)
+        return empty()
+      })
+    )
   }
 }

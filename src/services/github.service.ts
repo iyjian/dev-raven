@@ -1,14 +1,14 @@
 import { Injectable } from "@nestjs/common";
-import { HookParse } from "../interfaces";
+import { HookParse, GithubData } from "../interfaces";
 
 @Injectable()
 export class GitHubHookService implements HookParse {
   // parse(data: any, _to: string, _event?: string): string {
-  parse(data: any): string {
+  parse(data: GithubData): string {
     return this._push(data);
   }
 
-  private _push(data: any): string {
+  private _push(data: GithubData): string {
     const message = `[github]
       repository: ${data.repository.full_name}
       ${data.pusher.name} pushed on branch ${data.ref} with the following commit(s):
