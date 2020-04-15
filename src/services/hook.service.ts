@@ -44,7 +44,7 @@ export class HookService {
 
   private _sendDefaultCallback(to: string, msg: string): Observable<any> {
     return this.http.get(to, { params: {
-      content: encodeURIComponent(msg)
+      content: msg,
     }}).pipe(
       retry(3),
       catchError(err => {
