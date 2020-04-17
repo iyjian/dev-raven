@@ -5,7 +5,6 @@ import { GitHubHookService } from "./github.service";
 import { HookParse } from "../interfaces";
 import { HookFrom } from '../interfaces';
 import { Observable, empty } from "rxjs";
-import { UrlService } from './url.service';
 import { catchError, retry } from "rxjs/operators";
 import { CONFIG_PROIVDE } from '../config';
 
@@ -18,7 +17,6 @@ export class HookService {
     private readonly aliyunDockerHookService: AliyunDockerHookService,
     private readonly http: HttpService,
     @Inject(CONFIG_PROIVDE) private readonly config,
-    private readonly urlService: UrlService,
   ) {
     this.services = new Map<HookFrom, HookParse>()
     this.services.set(HookFrom["GITHUB"], this.gitHubHookService)
@@ -32,8 +30,9 @@ export class HookService {
 
   toHook(to: string, msg: string): Observable<any> {
     if (!to) {
-      return new Observable()
-    } else if (this._isWechatWork(to)) {
+      return empty()
+    } 
+    if (this._isWechatWork(to)) {
       return this._sendWechatWorkCallback(to, msg)
     } else {
       return this._sendDefaultCallback(to, msg)
