@@ -31,7 +31,9 @@ export class HookService {
   }
 
   toHook(to: string, msg: string): Observable<any> {
-    if (this._isWechatWork(to)) {
+    if (!to) {
+      return new Observable()
+    } else if (this._isWechatWork(to)) {
       return this._sendWechatWorkCallback(to, msg)
     } else {
       return this._sendDefaultCallback(to, msg)

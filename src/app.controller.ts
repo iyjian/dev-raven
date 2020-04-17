@@ -18,6 +18,6 @@ export class AppController {
   ): string {
     const msg = this.hookService.getService(from).parse(data, githubEvent)
     this.hookService.toHook(to, msg).subscribe()
-    return to ? msg : 'dummy'
+    return msg
   }
 }
