@@ -17,4 +17,3 @@ RUN yarn run build
 
 ENTRYPOINT ["yarn","run","start:prod"]
 EXPOSE 3000
-
