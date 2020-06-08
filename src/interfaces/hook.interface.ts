@@ -5,7 +5,7 @@ export enum HookFrom {
 }
 
 export interface HookParse {
-  parse(data: GithubData | AliyunData, event?: string) : string,
+  parse(data: GithubData | AliyunData, event?: string) : Promise<string>,
 }
 
 export interface GithubCommit {
@@ -29,7 +29,7 @@ export interface GithubData {
 }
 
 export interface AliyunData {
-  repository: AliyunRepository, 
+  repository: AliyunRepository,
   push_data: AliyunPusher,
 }
 
