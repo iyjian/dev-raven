@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { GithubData, HookParse, Webhooks } from '../interfaces';
+import { GithubData, HookParse, Webhooks as GithubWebHooks } from '../interfaces';
 import { CONFIG_PROIVDE, config } from '../config';
 import { Template } from '../decorators';
 
@@ -8,7 +8,7 @@ export class GitHubHookService implements HookParse {
   constructor(@Inject(CONFIG_PROIVDE) private readonly config) {}
 
   @Template(config.template.github.issue)
-  async issues(eventData: Webhooks.WebhookPayloadIssues) {
+  async issues(eventData: GithubWebHooks.WebhookPayloadIssues) {
     const { action, issue, repository, sender } = eventData;
     return {
       title: issue.title,
@@ -21,7 +21,7 @@ export class GitHubHookService implements HookParse {
   }
 
   @Template(config.template.github.issueComment)
-  async issue_comment(eventData: Webhooks.WebhookPayloadIssueComment) {
+  async issue_comment(eventData: GithubWebHooks.WebhookPayloadIssueComment) {
     const { action, issue, repository, comment, sender } = eventData;
     return {
       title: issue.title,
@@ -36,7 +36,7 @@ export class GitHubHookService implements HookParse {
   }
 
   @Template(config.template.github.push)
-  async push(eventData: Webhooks.WebhookPayloadPush) {
+  async push(eventData: GithubWebHooks.WebhookPayloadPush) {
     const {
       ref,
       repository,
@@ -64,7 +64,7 @@ export class GitHubHookService implements HookParse {
   }
 
   @Template(config.template.github.create)
-  async create(eventData: Webhooks.WebhookPayloadCreate) {
+  async create(eventData: GithubWebHooks.WebhookPayloadCreate) {
     const { ref, ref_type, repository, sender } = eventData;
     return {
       actionLogin: sender.type + ' : ' + sender.login,
@@ -75,7 +75,7 @@ export class GitHubHookService implements HookParse {
   }
 
   @Template(config.template.github.pullRequest)
-  async pull_request(eventData: Webhooks.WebhookPayloadPullRequest) {
+  async pull_request(eventData: GithubWebHooks.WebhookPayloadPullRequest) {
     const { action, pull_request } = eventData;
     return {
       action,

@@ -1,22 +1,46 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
-import { HookParse } from '../interfaces';
+import { HookParse, GitLabWebHooks } from '../interfaces';
 import { UrlService } from './url.service';
 
 @Injectable()
 export class GitLabHookService implements HookParse {
   constructor(private readonly urlService: UrlService) {}
 
-  async parse(data: any): Promise<string> {
-    const { object_kind } = data;
-    if (this[`_${object_kind}Parser`] instanceof Function) {
-      return this[`_${object_kind}Parser`](data);
-    } else {
-      throw new HttpException(
-        `${object_kind} is not supported type`,
-        HttpStatus.NOT_FOUND,
-      );
+  async push(eventData: GitLabWebHooks.PushEvent) {
+    return this._pushParser(eventData);
+  }
+
+  async tagPush(eventData: GitLabWebHooks.TagPushEvent) {}
+
+  async issue(eventData: GitLabWebHooks.IssueEvent) {
+    return this._issueParser(eventData);
+  }
+
+  async note(eventData: GitLabWebHooks.NoteEvent) {
+    return this._noteParser(eventData);
+  }
+
+  async mergeRequest(eventData: GitLabWebHooks.MergeRequestEvent) {
+    const { user, project, object_attributes } = eventData;
+
+    return `
+    merge_request\n
+    ${user.name} 在 ${project.name} ${object_attributes.action} 了 merge_request\n
+    [标题]: ${object_attributes.title}\n
+    [source]: ${object_attributes.source_branch}\n
+    [target]: ${object_attributes.target_branch}\n
+    [last_commit]: \n
+       id:${object_attributes.last_commit.id}\n
+       message:${object_attributes.last_commit.message}\n
+    [link]: ${object_attributes.url}   
+    `.trim();
+  }
+
+  async parse(data: any, event: string): Promise<string> {
+    if (this[event]) {
+      return this[event](data, event);
     }
+    return '';
   }
 
   private async _pushParser(commitData) {
@@ -99,10 +123,12 @@ export class GitLabHookService implements HookParse {
 
     return `
       [${project.path_with_namespace}] ${user.username} ${object_attributes.action} an issue:
-      
-      ${object_attributes.title}
 
-      [link]: ${object_attributes.issueUrl}
+      [标题]: ${object_attributes.title}
+      
+      [内容]: ${object_attributes.description}
+
+      [link]: ${object_attributes.url}
     `;
   }
 
@@ -110,7 +136,7 @@ export class GitLabHookService implements HookParse {
     let content;
     if (filteredData.status === 'newBranch') {
       content = `${filteredData.username} 在 ${filteredData.path_with_namespace} 推送了
-      
+
       新分支：${filteredData.refBranch}
 
       [LINK] ${filteredData.repositoryUrl}`;
