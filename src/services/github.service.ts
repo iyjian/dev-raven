@@ -416,7 +416,7 @@ export class GitHubHookService implements HookParse {
 
   @Template(config.template.github.push)
   async push(eventData: GithubWebHooks.WebhookPayloadPush) {
-    //{
+    // {
     //   "ref": "refs/heads/dev",
     //   "before": "0000000000000000000000000000000000000000",
     //   "after": "e3c7ce690330810e33ed2b25274f0f2a68e2efec",
@@ -608,7 +608,7 @@ export class GitHubHookService implements HookParse {
 
   @Template(config.template.github.create)
   async create(eventData: GithubWebHooks.WebhookPayloadCreate) {
-    //{
+    // {
     //   "ref": "t1",
     //   "ref_type": "branch",
     //   "master_branch": "master",
@@ -867,7 +867,7 @@ export class GitHubHookService implements HookParse {
 
   @Template(config.template.github.pullRequest)
   async pull_request(eventData: GithubWebHooks.WebhookPayloadPullRequest) {
-    //{
+    // {
     //   "action": "opened",
     //   "number": 5,
     //   "pull_request": {

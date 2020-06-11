@@ -714,26 +714,89 @@ export declare namespace Webhooks {
     sender: WebhookPayloadReleaseSender;
   };
   type WebhookPayloadPushSender = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
-  type WebhookPayloadPushPusher = { name: string; email: string };
+  type WebhookPayloadPushPusher = {
+    /**
+     * "xihuanhh"
+     */
+    name: string;
+    /**
+     * ""750375641@qq.com""
+     */
+    email: string
+  };
   type WebhookPayloadPush = {
     /**
      * 本次推送的分支名称
@@ -742,14 +805,17 @@ export declare namespace Webhooks {
     ref: string;
     /**
      * push之前的commitId
+     * "0000000000000000000000000000000000000000"
      */
     before: string;
     /**
      * push之后的commitId
+     * "e3c7ce690330810e33ed2b25274f0f2a68e2efec"
      */
     after: string;
     /**
      * 该分支是否是被push创建的
+     *
      */
     created: boolean;
     /**
@@ -762,18 +828,69 @@ export declare namespace Webhooks {
     forced: boolean;
     /**
      * base 分支
+     *
+     * refs/heads/master
      */
     base_ref: null;
     /**
      * 对比的url地址
+     *
+     * "https://github.com/xihuanhh/test/compare/dev"
      */
     compare: string;
     /**
      * 提交的commits列表
+     * [
+     *  {
+          "id": "e3c7ce690330810e33ed2b25274f0f2a68e2efec",
+          "tree_id": "577682e72d422180cde2f2dbf55a80097a5d3120",
+          "distinct": true,
+          "message": "Set theme jekyll-theme-cayman",
+          "timestamp": "2020-06-04T14:37:30+08:00",
+          "url": "https://github.com/xihuanhh/test/commit/e3c7ce690330810e33ed2b25274f0f2a68e2efec",
+          "author": {
+            "name": "xihuanhh",
+            "email": "750375641@qq.com",
+            "username": "xihuanhh"
+          },
+          "committer": {
+            "name": "xihuanhh",
+            "email": "750375641@qq.com",
+            "username": "xihuanhh"
+          },
+          "added": [
+            "_config.yml"
+          ],
+          "removed": [],
+          "modified": []
+        }
+     * ]
      */
     commits: Array<any>;
     /**
-     * headCommit
+     *   "head_commit": {
+          "id": "e3c7ce690330810e33ed2b25274f0f2a68e2efec",
+          "tree_id": "577682e72d422180cde2f2dbf55a80097a5d3120",
+          "distinct": true,
+          "message": "Set theme jekyll-theme-cayman",
+          "timestamp": "2020-06-04T14:37:30+08:00",
+          "url": "https://github.com/xihuanhh/test/commit/e3c7ce690330810e33ed2b25274f0f2a68e2efec",
+          "author": {
+            "name": "xihuanhh",
+            "email": "750375641@qq.com",
+            "username": "xihuanhh"
+          },
+          "committer": {
+            "name": "xihuanhh",
+            "email": "750375641@qq.com",
+            "username": "xihuanhh"
+          },
+          "added": [
+            "_config.yml"
+          ],
+          "removed": [],
+          "modified": []
+        }
      */
     head_commit: null;
     /**
@@ -1868,8 +1985,17 @@ export declare namespace Webhooks {
     site_admin: boolean;
   };
   type WebhookPayloadPullRequestPullRequestBase = {
+    /**
+     * "xihuanhh:master"
+     */
     label: string;
+    /**
+     * "master"
+     */
     ref: string;
+    /**
+     * "5fda993d395c095e69e57625a384160ad26d26e3"
+     */
     sha: string;
     user: WebhookPayloadPullRequestPullRequestBaseUser;
     repo: WebhookPayloadPullRequestPullRequestBaseRepo;
@@ -1895,78 +2021,255 @@ export declare namespace Webhooks {
     site_admin: boolean;
   };
   type WebhookPayloadPullRequestPullRequestHeadRepo = {
+    /**
+     * 35196149
+     */
     id: number;
+    /**
+     * MDEwOlJlcG9zaXRvcnkzNTE5NjE0OQ
+     */
     node_id: string;
+    /**
+     * test
+     */
     name: string;
+    /**
+     * "xihuanhh/test"
+     */
     full_name: string;
+    /**
+     * false
+     */
     private: boolean;
     owner: WebhookPayloadPullRequestPullRequestHeadRepoOwner;
     html_url: string;
     description: null;
     fork: boolean;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test"
+     */
     url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/forks"
+     */
     forks_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/keys{/key_id}"
+     */
     keys_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/collaborators{/collaborator}"
+     */
     collaborators_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/teams"
+     */
     teams_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/hooks"
+     */
     hooks_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/events{/number}"
+     */
     issue_events_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/events"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/assignees{/user}"
+     */
     assignees_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/branches{/branch}"
+     */
     branches_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/tags"
+     */
     tags_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/git/blobs{/sha}"
+     */
     blobs_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/git/tags{/sha}"
+     */
     git_tags_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/git/refs{/sha}"
+     */
     git_refs_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/git/trees{/sha}"
+     */
     trees_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/statuses/{sha}"
+     */
     statuses_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/languages"
+     */
     languages_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/stargazers"
+     */
     stargazers_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/contributors"
+     */
     contributors_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/subscribers"
+     */
     subscribers_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/subscription"
+     */
     subscription_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/commits{/sha}"
+     */
     commits_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/git/commits{/sha}"
+     */
     git_commits_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/comments{/number}"
+     */
     comments_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/comments{/number}"
+     */
     issue_comment_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/contents/{+path}"
+     */
     contents_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/compare/{base}...{head}"
+     */
     compare_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/merges"
+     */
     merges_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/{archive_format}{/ref}"
+     */
     archive_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/downloads"
+     */
     downloads_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues{/number}"
+     */
     issues_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/pulls{/number}"
+     */
     pulls_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/milestones{/number}"
+     */
     milestones_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/notifications{?since,all,participating}"
+     */
     notifications_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/labels{/name}"
+     */
     labels_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/releases{/id}"
+     */
     releases_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/deployments"
+     */
     deployments_url: string;
     created_at: string;
     updated_at: string;
     pushed_at: string;
     git_url: string;
+    /**
+     * "git@github.com:xihuanhh/test.git"
+     */
     ssh_url: string;
+    /**
+     * "https://github.com/xihuanhh/test.git"
+     */
     clone_url: string;
+    /**
+     * "https://github.com/xihuanhh/test"
+     */
     svn_url: string;
     homepage: null;
     size: number;
+    /**
+     * 1
+     */
     stargazers_count: number;
+    /**
+     * 1
+     */
     watchers_count: number;
     language: null | string;
     has_issues: boolean;
+    /**
+     * true
+     */
     has_projects: boolean;
+    /**
+     * true
+     */
     has_downloads: boolean;
+    /**
+     * false
+     */
     has_wiki: boolean;
+    /**
+     * false
+     */
     has_pages: boolean;
+    /**
+     * 0
+     */
     forks_count: number;
+    /**
+     * ""
+     */
     mirror_url: null;
+    /**
+     * true
+     */
     archived: boolean;
     disabled: boolean;
     open_issues_count: number;
+    /**
+     * null
+     */
     license: null;
+    /**
+     * 0
+     */
     forks: number;
+    /**
+     * 0
+     */
     open_issues: number;
+    /**
+     * 0
+     */
     watchers: number;
+    /**
+     * master
+     */
     default_branch: string;
   };
   type WebhookPayloadPullRequestPullRequestHeadUser = {
@@ -1990,8 +2293,17 @@ export declare namespace Webhooks {
     site_admin: boolean;
   };
   type WebhookPayloadPullRequestPullRequestHead = {
+    /**
+     * "xihuanhh:dev"
+     */
     label: string;
+    /**
+     * "dev"
+     */
     ref: string;
+    /**
+     * "d65f454953f8c08e4e37ad32ef6f14e93223c916"
+     */
     sha: string;
     user: WebhookPayloadPullRequestPullRequestHeadUser;
     repo: WebhookPayloadPullRequestPullRequestHeadRepo;
@@ -2017,23 +2329,77 @@ export declare namespace Webhooks {
     site_admin: boolean;
   };
   type WebhookPayloadPullRequestPullRequest = {
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/pulls/5",
+     */
     url: string;
+    /**
+     * 430784412
+     */
     id: number;
+    /**
+     * "MDExOlB1bGxSZXF1ZXN0NDMwNzg0NDEy"
+     */
     node_id: string;
+    /**
+     * "https://github.com/xihuanhh/test/pull/5",
+     */
     html_url: string;
+    /**
+     * "https://github.com/xihuanhh/test/pull/5.diff",
+     */
     diff_url: string;
+    /**
+     * "https://github.com/xihuanhh/test/pull/5.patch",
+     */
     patch_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/5",
+     */
     issue_url: string;
+    /**
+     * 5
+     */
     number: number;
+    /**
+     *  "open"
+     */
     state: string;
+    /**
+     * false
+     */
     locked: boolean;
+    /**
+     * "Dev"
+     */
     title: string;
+    /**
+     *
+     */
     user: WebhookPayloadPullRequestPullRequestUser;
+    /**
+     * "测试pr\r\n"
+     */
     body: string;
+    /**
+     * "2020-06-08T06:06:21Z"
+     */
     created_at: string;
+    /**
+     * "2020-06-08T06:06:21Z"
+     */
     updated_at: string;
+    /**
+     * "2020-06-08T06:06:21Z"
+     */
     closed_at: null | string;
+    /**
+     * "2020-06-08T06:06:21Z"
+     */
     merged_at: null;
+    /**
+     * null
+     */
     merge_commit_sha: null | string;
     assignee: WebhookPayloadPullRequestPullRequestAssignee;
     assignees: Array<WebhookPayloadPullRequestPullRequestAssigneesItem>;
@@ -2041,27 +2407,87 @@ export declare namespace Webhooks {
     requested_teams: Array<any>;
     labels: Array<WebhookPayloadPullRequestPullRequestLabelsItem>;
     milestone: WebhookPayloadPullRequestPullRequestMilestone;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/pulls/5/commits"
+     */
     commits_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/pulls/5/comments",
+     */
     review_comments_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/pulls/comments{/number}",
+     */
     review_comment_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/5/comments",
+     */
     comments_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/statuses/d65f454953f8c08e4e37ad32ef6f14e93223c916",
+     */
     statuses_url: string;
     head: WebhookPayloadPullRequestPullRequestHead;
     base: WebhookPayloadPullRequestPullRequestBase;
+    /**
+     *
+     */
     _links: WebhookPayloadPullRequestPullRequestLinks;
+    /**
+     *
+     */
     author_association: string;
+    /**
+     *
+     */
     draft: boolean;
+    /**
+     *
+     */
     merged: boolean;
+    /**
+     *
+     */
     mergeable: null | boolean;
+    /**
+     *
+     */
     rebaseable: null | boolean;
+    /**
+     *
+     */
     mergeable_state: string;
+    /**
+     *
+     */
     merged_by: null;
+    /**
+     *
+     */
     comments: number;
+    /**
+     *
+     */
     review_comments: number;
+    /**
+     *
+     */
     maintainer_can_modify: boolean;
+    /**
+     *
+     */
     commits: number;
+    /**
+     *
+     */
     additions: number;
+    /**
+     *
+     */
     deletions: number;
+    /**
+     *
+     */
     changed_files: number;
   };
   type WebhookPayloadPullRequest = {
@@ -2073,6 +2499,8 @@ export declare namespace Webhooks {
     action: string;
     /**
      * pr的编号
+     *
+     * 5
      */
     number: number;
     /**
@@ -2975,43 +3403,151 @@ export declare namespace Webhooks {
     patch_url: string;
   };
   type WebhookPayloadIssuesAssignee = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
   type WebhookPayloadIssuesSender = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
   type WebhookPayloadIssuesChanges = {};
@@ -3054,43 +3590,151 @@ export declare namespace Webhooks {
     closed_at: string;
   } | null;
   type WebhookPayloadIssuesIssueAssigneesItem = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
   type WebhookPayloadIssuesIssueAssignee = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   } | null;
   type WebhookPayloadIssuesIssueLabelsItem = {
@@ -3102,48 +3746,158 @@ export declare namespace Webhooks {
     default: boolean;
   };
   type WebhookPayloadIssuesIssueUser = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
   type WebhookPayloadIssuesIssue = {
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/2"
+     */
     url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test"
+     */
     repository_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/2/labels{/name}"
+     */
     labels_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/2/comments"
+     */
     comments_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/2/events"
+     */
     events_url: string;
+    /**
+     * "https://github.com/xihuanhh/test/issues/2"
+     */
     html_url: string;
+    /**
+     * 631354156
+     */
     id: number;
+    /**
+     * "MDU6SXNzdWU2MzEzNTQxNTY"
+     */
     node_id: string;
+    /**
+     * 2
+     */
     number: number;
+    /**
+     * "test 23434"
+     */
     title: string;
+
     user: WebhookPayloadIssuesIssueUser;
     labels: Array<WebhookPayloadIssuesIssueLabelsItem>;
+    /**
+     * "open"
+     */
     state: string;
+    /**
+     * false
+     */
     locked: boolean;
+
     assignee: WebhookPayloadIssuesIssueAssignee;
     assignees: Array<WebhookPayloadIssuesIssueAssigneesItem>;
     milestone: WebhookPayloadIssuesIssueMilestone;
+    /**
+     * 0
+     */
     comments: number;
+    /**
+     * "2020-06-05T06:46:35Z"
+     */
     created_at: string;
+    /**
+     * "2020-06-05T06:57:12Z"
+     */
     updated_at: string;
-    closed_at: null;
+    /**
+     * "null"
+     */
+    closed_at: string;
+    /**
+     * "OWNER"
+     */
     author_association: string;
+    /**
+     * "this is test 2"
+     */
     body: string;
     pull_request?: WebhookPayloadIssuesIssuePullRequest;
   };
@@ -3194,55 +3948,191 @@ export declare namespace Webhooks {
     body: WebhookPayloadIssueCommentChangesBody;
   };
   type WebhookPayloadIssueCommentSender = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
   type WebhookPayloadIssueCommentCommentUser = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
   type WebhookPayloadIssueCommentComment = {
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/comments/639303920",
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh/test/issues/2#issuecomment-639303920",
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/2",
+     */
     issue_url: string;
+    /**
+     * 639303920
+     */
     id: number;
+    /**
+     * "MDEyOklzc3VlQ29tbWVudDYzOTMwMzkyMA"
+     */
     node_id: string;
+
     user: WebhookPayloadIssueCommentCommentUser;
+    /**
+     * "2020-06-05T07:17:13Z"
+     */
     created_at: string;
+    /**
+     * "2020-06-05T07:17:13Z"
+     */
     updated_at: string;
+    /**
+     * "OWNER"
+     */
     author_association: string;
+    /**
+     * "12312313212313"
+     */
     body: string;
   };
   type WebhookPayloadIssueCommentIssueMilestoneCreator = {
@@ -3304,23 +4194,77 @@ export declare namespace Webhooks {
     site_admin: boolean;
   };
   type WebhookPayloadIssueCommentIssueAssignee = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
   type WebhookPayloadIssueCommentIssueLabelsItem = {
@@ -3332,48 +4276,154 @@ export declare namespace Webhooks {
     default: boolean;
   };
   type WebhookPayloadIssueCommentIssueUser = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
   type WebhookPayloadIssueCommentIssue = {
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/2"
+     */
     url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test",
+     */
     repository_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/2/labels{/name}",
+     */
     labels_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/2/comments",
+     */
     comments_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/2/events"
+     */
     events_url: string;
+    /**
+     * "https://github.com/xihuanhh/test/issues/2"
+     */
     html_url: string;
+    /**
+     * 631354156
+     */
     id: number;
+    /**
+     * "MDU6SXNzdWU2MzEzNTQxNTY"
+     */
     node_id: string;
+    /**
+     * 2
+     */
     number: number;
+    /**
+     * "test 23"
+     */
     title: string;
+
     user: WebhookPayloadIssueCommentIssueUser;
     labels: Array<WebhookPayloadIssueCommentIssueLabelsItem>;
+    /**
+     * "open"
+     */
     state: string;
     locked: boolean;
     assignee: WebhookPayloadIssueCommentIssueAssignee;
     assignees: Array<WebhookPayloadIssueCommentIssueAssigneesItem>;
     milestone: WebhookPayloadIssueCommentIssueMilestone;
+    /**
+     *  1
+     */
     comments: number;
+    /**
+     * "2020-06-05T06:46:35Z",
+     */
     created_at: string;
+    /**
+     * "2020-06-05T06:46:35Z",
+     */
     updated_at: string;
+    /**
+     * null
+     */
     closed_at: null;
+    /**
+     * "OWNER"
+     */
     author_association: string;
+    /**
+     * "this is test 2"
+     */
     body: string;
   };
   type WebhookPayloadIssueComment = {
@@ -3962,23 +5012,77 @@ export declare namespace Webhooks {
     sender: WebhookPayloadDeployKeySender;
   };
   type WebhookPayloadDeleteSender = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
   /**
@@ -4011,23 +5115,77 @@ export declare namespace Webhooks {
     sender: WebhookPayloadDeleteSender;
   };
   type WebhookPayloadCreateSender = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
   /**
@@ -4046,8 +5204,13 @@ export declare namespace Webhooks {
     ref_type: string;
     /**
      * master分支
+     *
+     * "master"
      */
     master_branch: string;
+    /**
+     * "test repository"
+     */
     description: string;
     /**
      * 推送或者说是创建人的类型
@@ -4320,120 +5483,445 @@ export declare namespace Webhooks {
     description: string;
   };
   type WebhookPayloadCheckRunSender = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
   };
   type PayloadRepositoryOwner = {
+    /**
+     * xihuanhh
+     */
     login: string;
+    /**
+     * 7556082
+     */
     id: number;
+    /**
+     * "MDQ6VXNlcjc1NTYwODI"
+     */
     node_id: string;
+    /**
+     * https://avatars1.githubusercontent.com/u/7556082?v=4
+     */
     avatar_url: string;
+    /**
+     * ""
+     */
     gravatar_id: string;
+    /**
+     * "https://api.github.com/users/xihuanhh"
+     */
     url: string;
+    /**
+     * "https://github.com/xihuanhh"
+     */
     html_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/followers"
+     */
     followers_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/following{/other_user}"
+     */
     following_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/gists{/gist_id}"
+     */
     gists_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/starred{/owner}{/repo}"
+     */
     starred_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/subscriptions"
+     */
     subscriptions_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/orgs"
+     */
     organizations_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/repos"
+     */
     repos_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/events{/privacy}"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/users/xihuanhh/received_events"
+     */
     received_events_url: string;
+    /**
+     * "User"
+     */
     type: string;
+    /**
+     * false
+     */
     site_admin: boolean;
     name?: string;
     email?: string;
   };
   type PayloadRepository = {
+    /**
+     * 35196149
+     */
     id: number;
+    /**
+     * MDEwOlJlcG9zaXRvcnkzNTE5NjE0OQ
+     */
     node_id: string;
+    /**
+     * test
+     */
     name: string;
+    /**
+     * "xihuanhh/test"
+     */
     full_name: string;
+    /**
+     * false
+     */
     private: boolean;
+
     owner: PayloadRepositoryOwner;
+    /**
+     * "https://github.com/xihuanhh/test"
+     */
     html_url: string;
+    /**
+     * "test repository"
+     */
     description: null | string;
+    /**
+     * false
+     */
     fork: boolean;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test"
+     */
     url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/forks"
+     */
     forks_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/keys{/key_id}"
+     */
     keys_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/collaborators{/collaborator}"
+     */
     collaborators_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/teams"
+     */
     teams_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/hooks"
+     */
     hooks_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/events{/number}"
+     */
     issue_events_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/events"
+     */
     events_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/assignees{/user}"
+     */
     assignees_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/branches{/branch}"
+     */
     branches_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/tags"
+     */
     tags_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/git/blobs{/sha}"
+     */
     blobs_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/git/tags{/sha}"
+     */
     git_tags_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/git/refs{/sha}"
+     */
     git_refs_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/git/trees{/sha}"
+     */
     trees_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/statuses/{sha}"
+     */
     statuses_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/languages"
+     */
     languages_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/stargazers"
+     */
     stargazers_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/contributors"
+     */
     contributors_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/subscribers"
+     */
     subscribers_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/subscription"
+     */
     subscription_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/commits{/sha}"
+     */
     commits_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/git/commits{/sha}"
+     */
     git_commits_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/comments{/number}"
+     */
     comments_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues/comments{/number}"
+     */
     issue_comment_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/contents/{+path}"
+     */
     contents_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/compare/{base}...{head}"
+     */
     compare_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/merges"
+     */
     merges_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/{archive_format}{/ref}"
+     */
     archive_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/downloads"
+     */
     downloads_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/issues{/number}"
+     */
     issues_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/pulls{/number}"
+     */
     pulls_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/milestones{/number}"
+     */
     milestones_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/notifications{?since,all,participating}"
+     */
     notifications_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/labels{/name}"
+     */
     labels_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/releases{/id}"
+     */
     releases_url: string;
+    /**
+     * "https://api.github.com/repos/xihuanhh/test/deployments"
+     */
     deployments_url: string;
+    /**
+     * "2015-05-07T03:14:32Z"
+     */
     created_at: string | number;
+    /**
+     * "2015-05-07T03:14:32Z"
+     */
     updated_at: string;
+    /**
+     * "2015-05-07T03:14:32Z"
+     */
     pushed_at: string | number;
+    /**
+     * "git://github.com/xihuanhh/test.git"
+     */
     git_url: string;
+    /**
+     * "git@github.com:xihuanhh/test.git"
+     */
     ssh_url: string;
+    /**
+     * "https://github.com/xihuanhh/test.git"
+     */
     clone_url: string;
+    /**
+     * "https://github.com/xihuanhh/test"
+     */
     svn_url: string;
+    /**
+     * null
+     */
     homepage: null | string;
+    /**
+     * 0
+     */
     size: number;
+    /**
+     * 1
+     */
     stargazers_count: number;
+    /**
+     * 1
+     */
     watchers_count: number;
+    /**
+     * null
+     */
     language: string | null;
+    /**
+     * true
+     */
     has_issues: boolean;
+    /**
+     * true
+     */
     has_projects: boolean;
+    /**
+     * true
+     */
     has_downloads: boolean;
+    /**
+     * false
+     */
     has_wiki: boolean;
+    /**
+     * false
+     */
     has_pages: boolean;
+    /**
+     * 0
+     */
     forks_count: number;
+    /**
+     * ""
+     */
     mirror_url: null;
+    /**
+     * true
+     */
     archived: boolean;
+    /**
+     * false
+     */
     disabled?: boolean;
+    /**
+     * 0
+     */
     open_issues_count: number;
+    /**
+     * null
+     */
     license: null;
+    /**
+     * 0
+     */
     forks: number;
+    /**
+     * 0
+     */
     open_issues: number;
+    /**
+     * 0
+     */
     watchers: number;
+    /**
+     * master
+     */
     default_branch: string;
     stargazers?: number;
     master_branch?: string;
