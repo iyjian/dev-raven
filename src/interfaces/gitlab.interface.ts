@@ -1,50 +1,133 @@
 
 
-export declare module GitLabWebHooks {
+export declare namespace GitLabWebHooks {
 
   export interface PushEvent {
+    /**
+     * object_kind=push
+     */
     object_kind: string;
+    /**
+     * push之前commitId
+     */
     before: string;
+    /**
+     * push之后commitId
+     */
     after: string;
+    /**
+     * 分支名称
+     * 例如："refs/heads/master" 分支名其实为 master
+     */
     ref: string;
     checkout_sha: string;
     user_id: number;
+    /**
+     * 用户昵称吧
+     */
     user_name: string;
+    /**
+     * 用户登录名
+     */
     user_username: string;
     user_email: string;
     user_avatar: string;
     project_id: number;
+    /**
+     * 项目详情
+     */
     project: Project;
+    /**
+     * 仓库详情
+     */
     repository: Repository;
+    /**
+     * commit列表
+     */
     commits: Commit[];
+    /**
+     * commit总数
+     */
     total_commits_count: number;
   }
 
   export interface TagPushEvent {
+    /**
+     * object_kind=tag_push
+     */
     object_kind: string;
+    /**
+     * push之前commitId
+     */
     before: string;
+    /**
+     * push之后commitId
+     */
     after: string;
+    /**
+     * 分支名称
+     * 例如："refs/heads/master" 分支名其实为 master
+     */
     ref: string;
     checkout_sha: string;
     user_id: number;
+    /**
+     * 用户昵称吧
+     */
     user_name: string;
     user_avatar: string;
     project_id: number;
+    /**
+     * 项目详情
+     */
     project: Project;
+    /**
+     * 仓库详情
+     */
     repository: Repository;
+    /**
+     * commit列表
+     */
     commits: Commit[];
+    /**
+     * commit总数
+     */
     total_commits_count: number;
   }
 
   export interface IssueEvent {
+    /**
+     * object_kind=issue
+     */
     object_kind: string;
+    /**
+     * issue发起用户详情
+     */
     user: User;
+    /**
+     * 项目详情
+     */
     project: Project;
+    /**
+     * 仓库详情
+     */
     repository: Repository;
+    /**
+     * issue详情
+     */
     object_attributes: IssueAttributes;
+    /**
+     * 指派用户详情列表
+     */
     assignees: User[];
     assignee: User;
+    /**
+     * 标签
+     */
     labels: Label[];
+    /**
+     * issue变更详情
+     */
     changes: Changes;
   }
 
@@ -67,16 +150,47 @@ export declare module GitLabWebHooks {
     action: string;
   }
 
+  /**
+   * issue、pr、commits、code snippets
+   * 在以上所有信息上标注的comment都会触发noteEvent
+   */
   export interface NoteEvent {
+    /**
+     * object_kind=note
+     */
     object_kind: string;
+    /**
+     * comment发起用户详情
+     */
     user: User;
     project_id: number;
+    /**
+     * 项目详情
+     */
     project: Project;
+    /**
+     * 仓库详情
+     */
     repository: Repository;
+    /**
+     * comment详情
+     */
     object_attributes: NoteAttributes;
+    /**
+     * 如果是commitComment,显示commit详情
+     */
     commit?: Commit;
+    /**
+     * 如果是mergeRequestComment,显示mergeRequest详情
+     */
     merge_request?: MergeRequest;
+    /**
+     * 如果是issueComment,显示issue详情
+     */
     issue?: Issue;
+    /**
+     * 如果是代码片段snippetComment,显示snippet详情
+     */
     snippet?: Snippet;
   }
 
@@ -98,10 +212,25 @@ export declare module GitLabWebHooks {
   }
 
   export interface MergeRequestEvent {
+    /**
+     * object_kind=merge_request
+     */
     object_kind: string;
+    /**
+     * merger_request发起用户详情
+     */
     user: User;
+    /**
+     * 项目详情
+     */
     project: Project;
+    /**
+     * 仓库详情
+     */
     repository: Repository;
+    /**
+     * merge_request详情
+     */
     object_attributes: MergeRequestAttributes;
     labels: Label[];
     changes: Changes;
@@ -128,6 +257,9 @@ export declare module GitLabWebHooks {
     last_commit: LastCommit;
     work_in_progress: boolean;
     url: string;
+    /**
+     * open,close,reopen等等
+     */
     action: string;
     assignee: User;
   }

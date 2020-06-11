@@ -735,18 +735,58 @@ export declare namespace Webhooks {
   };
   type WebhookPayloadPushPusher = { name: string; email: string };
   type WebhookPayloadPush = {
+    /**
+     * 本次推送的分支名称
+     * 例如： ref/heads/dev 实际是 dev 分支
+     */
     ref: string;
+    /**
+     * push之前的commitId
+     */
     before: string;
+    /**
+     * push之后的commitId
+     */
     after: string;
+    /**
+     * 该分支是否是被push创建的
+     */
     created: boolean;
+    /**
+     * 该分支是否是被push删除的
+     */
     deleted: boolean;
+    /**
+     * 是否强推的
+     */
     forced: boolean;
+    /**
+     * base 分支
+     */
     base_ref: null;
+    /**
+     * 对比的url地址
+     */
     compare: string;
+    /**
+     * 提交的commits列表
+     */
     commits: Array<any>;
+    /**
+     * headCommit
+     */
     head_commit: null;
+    /**
+     * 仓库所有信息
+     */
     repository: PayloadRepository;
+    /**
+     * 推送人
+     */
     pusher: WebhookPayloadPushPusher;
+    /**
+     * 和push一般一样，不过更详细
+     */
     sender: WebhookPayloadPushSender;
   };
   type WebhookPayloadPullRequestReviewCommentSender = {
@@ -2025,12 +2065,35 @@ export declare namespace Webhooks {
     changed_files: number;
   };
   type WebhookPayloadPullRequest = {
+    /**
+     * 表示pullRequest的状态
+     * opened, closed, reopened, edited, assigned, unassigned, review requested, review request removed, labeled,
+     * unlabeled, synchronized, ready for review, converted to draft, locked, or unlocked.
+     */
     action: string;
+    /**
+     * pr的编号
+     */
     number: number;
+    /**
+     * pr的详细信息
+     */
     pull_request: WebhookPayloadPullRequestPullRequest;
+    /**
+     * 仓库的信息
+     */
     repository: PayloadRepository;
+    /**
+     * 操作人信息
+     */
     sender: WebhookPayloadPullRequestSender;
+    /**
+     * 被指向人信息
+     */
     assignee?: WebhookPayloadPullRequestAssignee;
+    /**
+     * 标签
+     */
     label?: WebhookPayloadPullRequestLabel;
   };
   type WebhookPayloadPublicSender = {
@@ -3085,13 +3148,45 @@ export declare namespace Webhooks {
     pull_request?: WebhookPayloadIssuesIssuePullRequest;
   };
   type WebhookPayloadIssues = {
+    /**
+     * 表示issue的状态
+     * opened, edited, deleted, transferred, pinned, unpinned, closed, reopened,
+     * assigned, unassigned, labeled, unlabeled, milestoned, demilestoned, locked, or unlocked.
+     *
+     */
     action: string;
+    /**
+     * 该issue的所有信息
+     * 包括 标题、编号、url、内容 等等
+     */
     issue: WebhookPayloadIssuesIssue;
+    /**
+     * issue 属性发生的变动
+     * 例如 issue的标题 title 从  "test 1 到 test 2"
+     * "title": {
+        "from": "test 1"
+       }
+     */
     changes?: WebhookPayloadIssuesChanges;
+    /**
+     * 仓库的所有信息
+     */
     repository: PayloadRepository;
+    /**
+     * 提交人的信息
+     */
     sender: WebhookPayloadIssuesSender;
+    /**
+     * 指定谁谁来操作，这个不重要
+     */
     assignee?: WebhookPayloadIssuesAssignee;
+    /**
+     * issue的标签
+     */
     label?: WebhookPayloadIssuesLabel;
+    /**
+     * githubApp的install信息
+     */
     installation?: WebhookPayloadInstallation;
   };
   type WebhookPayloadIssueCommentChangesBody = { from: string };
@@ -3282,11 +3377,34 @@ export declare namespace Webhooks {
     body: string;
   };
   type WebhookPayloadIssueComment = {
+    /**
+     * 表示issueComment的状态
+     * created, edited, or deleted
+     */
     action: string;
+    /**
+     * issue的所有信息
+     */
     issue: WebhookPayloadIssueCommentIssue;
+    /**
+     * comment的所有信息
+     */
     comment: WebhookPayloadIssueCommentComment;
+    /**
+     * 仓库的所有信息
+     */
     repository: PayloadRepository;
+    /**
+     * 发送人的所有信息
+     */
     sender: WebhookPayloadIssueCommentSender;
+    /**
+     * issueComment的改动记录
+     * 例如 内容从  "test 1 到 test 2"
+     * "body": {
+        "from": "test 1"
+       }
+     */
     changes?: WebhookPayloadIssueCommentChanges;
   };
   type WebhookPayloadInstallationRepositoriesRepositoriesRemovedItem = {
@@ -3863,11 +3981,33 @@ export declare namespace Webhooks {
     type: string;
     site_admin: boolean;
   };
+  /**
+   * 该事件表示github端有人直接删除了分支、tag等
+   */
   type WebhookPayloadDelete = {
+    /**
+     * 分支名、tag名等
+     * 例如: "test1"
+     */
     ref: string;
+    /**
+     * 类型
+     * 例如分支: "branch"
+     */
     ref_type: string;
+    /**
+     * 推送或者说是创建人的类型
+     * 有可能是机器人
+     * 例如 "user" 或者 "bot"
+     */
     pusher_type: string;
+    /**
+     * 仓库信息
+     */
     repository: PayloadRepository;
+    /**
+     * 删除人信息
+     */
     sender: WebhookPayloadDeleteSender;
   };
   type WebhookPayloadCreateSender = {
@@ -3890,13 +4030,38 @@ export declare namespace Webhooks {
     type: string;
     site_admin: boolean;
   };
+  /**
+   * 该事件表示github端有人直接创建了新的分支、tag等
+   */
   type WebhookPayloadCreate = {
+    /**
+     * 分支名、tag名等
+     * 例如: "test1"
+     */
     ref: string;
+    /**
+     * 类型
+     * 例如分支: "branch"
+     */
     ref_type: string;
+    /**
+     * master分支
+     */
     master_branch: string;
-    description: null;
+    description: string;
+    /**
+     * 推送或者说是创建人的类型
+     * 有可能是机器人
+     * 例如 "user" 或者 "bot"
+     */
     pusher_type: string;
+    /**
+     * 仓库信息
+     */
     repository: PayloadRepository;
+    /**
+     * 创建人信息
+     */
     sender: WebhookPayloadCreateSender;
   };
   type WebhookPayloadContentReferenceInstallation = {
