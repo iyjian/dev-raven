@@ -1,9 +1,10 @@
+import { Webhooks as GithubWebHooks, GitLabWebHooks } from '../interfaces';
 export const config = {
   shortenUrlBase: 'https://s.bidwin.top/api/v1/shorten',
   wechatWorkHost: 'https://qyapi.weixin.qq.com',
   template: {
     github: {
-      issue: data => {
+      issue: (data: GithubWebHooks.WebhookPayloadIssues) => {
         return `
         [<%= actionLogin %>]
         [<%= action %>]
@@ -18,13 +19,13 @@ export const config = {
        * <%= commentContent %>
        * <%= content %>
        * <%= commentUrl %>
-       * 
+       *
        * [iyjian/dev-raven]
        * issue: test
        * test
        * https://github.com/iyjian/dev-raven/issues/4
        */
-      issueComment: data => {
+      issueComment: (data: GithubWebHooks.WebhookPayloadIssueComment) => {
         return `
         [<%= actionLogin %>]
         [<%= action %>]
@@ -35,15 +36,15 @@ export const config = {
         <%= url %>
       `;
       },
-      create: data => {
+      create: (data: GithubWebHooks.WebhookPayloadCreate) => {
         return `
         <%= actionLogin %> 在 <%= repository %>  创建了 <%= type %>: <%= name %>
       `;
       },
-      delete: data=>{
-        return ``
+      delete: (data: GithubWebHooks.WebhookPayloadDelete) => {
+        return ``;
       },
-      push: data => {
+      push: (data: GithubWebHooks.WebhookPayloadPush) => {
         return `
         [<%= actionLogin %>]
         分支: <%= name %>
@@ -56,7 +57,7 @@ export const config = {
         操作人:       
       `;
       },
-      pullRequest: data => {
+      pullRequest: (data: GithubWebHooks.WebhookPayloadPullRequest) => {
         return `
         prAction: <%= action %>      
         pr标题: <%= title %>      
@@ -73,13 +74,23 @@ export const config = {
       `;
       },
     },
-    gitlab:{
-      push:(data)=>{ return ``},
-      tagPush: (data)=> { return ``},
-      issue: (data)=> { return ``},
-      note: (data)=> { return ``},
-      mergeRequest: (data)=> { return ``}
-    }
+    gitlab: {
+      push: (data: GitLabWebHooks.PushEvent) => {
+        return ``;
+      },
+      tagPush: (data: GitLabWebHooks.TagPushEvent) => {
+        return ``;
+      },
+      issue: (data: GitLabWebHooks.IssueEvent) => {
+        return ``;
+      },
+      note: (data: GitLabWebHooks.NoteEvent) => {
+        return ``;
+      },
+      mergeRequest: (data: GitLabWebHooks.MergeRequestEvent) => {
+        return ``;
+      },
+    },
     // github: '[github]'+
     //         'repository:<%= repository.full_name %>'+
     //         '<%= pusher.name %> pushed on branch <%= ref %> with the following commit(s):'+

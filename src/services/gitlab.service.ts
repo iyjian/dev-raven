@@ -81,7 +81,7 @@ export class GitLabHookService implements HookParse {
     //   "total_commits_count": 4
     // }
     // return this._pushParser(eventData);
-    return eventData
+    return eventData;
   }
 
   @Template(config.template.gitlab.tagPush)
@@ -125,7 +125,7 @@ export class GitLabHookService implements HookParse {
     //   "commits": [],
     //   "total_commits_count": 0
     // }
-    return eventData
+    return eventData;
   }
 
   @Template(config.template.gitlab.issue)
@@ -266,7 +266,7 @@ export class GitLabHookService implements HookParse {
     // }
     // }
 
-    return eventData
+    return eventData;
     // return this._issueParser(eventData);
   }
 
@@ -341,7 +341,7 @@ export class GitLabHookService implements HookParse {
     //   }
     // }
     // }
-    return eventData
+    return eventData;
     // return this._noteParser(eventData);
   }
 
@@ -494,7 +494,7 @@ export class GitLabHookService implements HookParse {
     //   }
     // }
 
-    return eventData
+    return eventData;
     // const { user, project, object_attributes } = eventData;
 
     // return `

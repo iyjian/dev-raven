@@ -9,7 +9,7 @@ export class GitHubHookService implements HookParse {
 
   @Template(config.template.github.issue)
   async issues(eventData: GithubWebHooks.WebhookPayloadIssues) {
-    return eventData
+    return eventData;
 
     // IssueAction
     // opened, edited, deleted, transferred, pinned, unpinned,
@@ -400,7 +400,6 @@ export class GitHubHookService implements HookParse {
     // }
     // }
 
-
     // const { action, issue, repository, comment, sender } = eventData;
     // return {
     //   title: issue.title,
@@ -412,7 +411,7 @@ export class GitHubHookService implements HookParse {
     //   action,
     //   actionLogin: sender.type + ' : ' + sender.login,
     // };
-    return eventData
+    return eventData;
   }
 
   @Template(config.template.github.push)
@@ -579,7 +578,7 @@ export class GitHubHookService implements HookParse {
     //     ]
     //   }
     // }
-    return eventData
+    return eventData;
 
     // const {
     //   ref,
@@ -730,7 +729,7 @@ export class GitHubHookService implements HookParse {
     //     "site_admin": false
     //   }
     // }
-    return eventData
+    return eventData;
 
     // const { ref, ref_type, repository, sender } = eventData;
     // return {
@@ -742,7 +741,7 @@ export class GitHubHookService implements HookParse {
   }
 
   @Template(config.template.github.delete)
-  async delete(eventData: GithubWebHooks.WebhookPayloadDelete){
+  async delete(eventData: GithubWebHooks.WebhookPayloadDelete) {
     // {
     //   "ref": "dependabot/npm_and_yarn/morgan-1.10.0",
     //     "ref_type": "branch",
@@ -863,7 +862,7 @@ export class GitHubHookService implements HookParse {
     // }
     // }
 
-    return eventData
+    return eventData;
   }
 
   @Template(config.template.github.pullRequest)
@@ -1323,7 +1322,6 @@ export class GitHubHookService implements HookParse {
     //   }
     // }
     return eventData;
-
 
     // const { action, pull_request } = eventData;
     // return {
