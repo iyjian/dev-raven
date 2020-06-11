@@ -14,6 +14,7 @@ export const config = {
       `,
       /**
        * <%= commentContent %>
+       * <%= content %>
        * <%= commentUrl %>
        */
       issueComment: `
@@ -21,7 +22,7 @@ export const config = {
         [<%= action %>]
         [<%= repository %>][<%= title %>]
         
-        <%= content %>
+        <%= commentContent %>
 
         <%= url %>
       `,
