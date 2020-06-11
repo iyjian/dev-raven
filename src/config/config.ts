@@ -16,6 +16,11 @@ export const config = {
        * <%= commentContent %>
        * <%= content %>
        * <%= commentUrl %>
+       * 
+       * [iyjian/dev-raven]
+       * issue: test
+       * test
+       * https://github.com/iyjian/dev-raven/issues/4
        */
       issueComment: `
         [<%= actionLogin %>]
