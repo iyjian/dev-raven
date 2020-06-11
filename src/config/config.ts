@@ -3,7 +3,8 @@ export const config = {
   wechatWorkHost: 'https://qyapi.weixin.qq.com',
   template: {
     github: {
-      issue: `
+      issue: data => {
+        return `
         [<%= actionLogin %>]
         [<%= action %>]
         [<%= repository %>][<%= title %>]
@@ -11,7 +12,8 @@ export const config = {
         <%= content %>
 
         <%= url %>
-      `,
+      `;
+      },
       /**
        * <%= commentContent %>
        * <%= content %>
@@ -22,7 +24,8 @@ export const config = {
        * test
        * https://github.com/iyjian/dev-raven/issues/4
        */
-      issueComment: `
+      issueComment: data => {
+        return `
         [<%= actionLogin %>]
         [<%= action %>]
         [<%= repository %>][<%= title %>]
@@ -30,11 +33,18 @@ export const config = {
         <%= commentContent %>
 
         <%= url %>
-      `,
-      create: `
+      `;
+      },
+      create: data => {
+        return `
         <%= actionLogin %> 在 <%= repository %>  创建了 <%= type %>: <%= name %>
-      `,
-      push: `
+      `;
+      },
+      delete: data=>{
+        return ``
+      },
+      push: data => {
+        return `
         [<%= actionLogin %>]
         分支: <%= name %>
         仓库: <%= repository %>
@@ -44,8 +54,10 @@ export const config = {
         分支比较页面: <%= compare %>
         本次提交: <%= commits %>
         操作人:       
-      `,
-      pullRequest:`
+      `;
+      },
+      pullRequest: data => {
+        return `
         prAction: <%= action %>      
         pr标题: <%= title %>      
         pr地址: <%= url %>      
@@ -58,8 +70,16 @@ export const config = {
         pr合并时间: <%= mergedAt %>
         prFrom: <%= from %>
         prTo: <%= to %>
-      `
+      `;
+      },
     },
+    gitlab:{
+      push:(data)=>{ return ``},
+      tagPush: (data)=> { return ``},
+      issue: (data)=> { return ``},
+      note: (data)=> { return ``},
+      mergeRequest: (data)=> { return ``}
+    }
     // github: '[github]'+
     //         'repository:<%= repository.full_name %>'+
     //         '<%= pusher.name %> pushed on branch <%= ref %> with the following commit(s):'+
