@@ -1,12 +1,5 @@
-type Options = {
-  secret: string;
-  path?: string;
-  transform?: (
-    event: Webhooks.WebhookEvent<any>,
-  ) => Webhooks.WebhookEvent<any> & { [key: string]: any };
-};
 
-export declare namespace Webhooks {
+export namespace Webhooks {
   type WebhookPayloadPingPayloadHookConfig = {
     content_type: string;
     insecure_ssl: string;
