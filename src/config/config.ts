@@ -30,6 +30,7 @@ export const config = {
       delete: (data: GithubWebHooks.WebhookPayloadDelete) => {
         const message = `
           [${data.repository.full_name}]
+          ${data.sender.login} just deleted the ${data.ref_type}: ${data.ref}
         `
         return message;
       },
