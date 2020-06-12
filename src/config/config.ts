@@ -34,9 +34,10 @@ export const config = {
         return message;
       },
       push: (data: GithubWebHooks.WebhookPayloadPush) => {
+        // ${data.pusher.name} ${data.created ? 'pushed' : data.deleted ? 'delete' : '----'} ${data.ref.split('/')[1] === 'heads' ? 'on branch' + data.ref.split('/')[2] : 'tag' + data.ref.split('/')[2]} with the following commit(s):
         const message = `
           [${data.repository.full_name}]
-          ${data.pusher.name} ${data.created ? 'pushed' : data.deleted ? 'delete' : '----'} ${data.ref.split('/')[1] === 'heads' ? 'on branch' + data.ref.split('/')[2] : 'tag' + data.ref.split('/')[2]} with the following commit(s):
+          ${data.pusher.name} pushed ${data.ref.split('/')[1] === 'heads' ? 'on branch ' + data.ref.split('/')[2] : 'tag ' + data.ref.split('/')[2]} with the following commit(s):
 
           ${data.commits.map(o => '[' + o.id.substr(0, 7) + '] ' + o.message).join("\n")}
         `
