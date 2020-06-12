@@ -4126,7 +4126,7 @@ export declare namespace Webhooks {
      */
     author_association: string;
     /**
-     * "12312313212313"
+     * issue 评论的实际内容
      */
     body: string;
   };

@@ -5,95 +5,54 @@ export const config = {
   template: {
     github: {
       issue: (data: GithubWebHooks.WebhookPayloadIssues) => {
-        return `
-        [<%= actionLogin %>]
-        [<%= action %>]
-        [<%= repository %>][<%= title %>]
-        
-        <%= content %>
+        const message = `
+          [${data.repository.name}][issue#${data.issue.id}]
+          ${data.sender.login}: ${data.issue.title.length > 50 ? data.issue.title.substr(0, 50) + '...' : data.issue.title}
 
-        <%= url %>
-      `;
+          ${data.issue.body.length > 50 ? data.issue.body.substr(0, 50) + '...' : data.issue.body}
+
+          ${data.issue.url}
+        `
+        return message;
       },
-      /**
-       * <%= commentContent %>
-       * <%= content %>
-       * <%= commentUrl %>
-       *
-       * [iyjian/dev-raven]
-       * issue: test
-       * test
-       * https://github.com/iyjian/dev-raven/issues/4
-       */
       issueComment: (data: GithubWebHooks.WebhookPayloadIssueComment) => {
-        return `
-        [<%= actionLogin %>]
-        [<%= action %>]
-        [<%= repository %>][<%= title %>]
-        
-        <%= commentContent %>
+        const message = `
+          [${data.repository.name}][issue#${data.issue.id}]
+          ${data.sender.login}: ${data.comment.body.length > 50 ? data.comment.body.substr(0, 50) + '...' : data.comment.body}
 
-        <%= url %>
-      `;
+          ${data.comment.url}
+        `
+        return message;
       },
       create: (data: GithubWebHooks.WebhookPayloadCreate) => {
-        return `
-        <%= actionLogin %> 在 <%= repository %>  创建了 <%= type %>: <%= name %>
-      `;
+        return data;
       },
       delete: (data: GithubWebHooks.WebhookPayloadDelete) => {
-        return ``;
+        return data;
       },
       push: (data: GithubWebHooks.WebhookPayloadPush) => {
-        return `
-        [<%= actionLogin %>]
-        分支: <%= name %>
-        仓库: <%= repository %>
-        是否新建: <%= created %>
-        是否删除: <%= deleted %>
-        是否强推: <%= forced %>
-        分支比较页面: <%= compare %>
-        本次提交: <%= commits %>
-        操作人:       
-      `;
+        return data;
       },
       pullRequest: (data: GithubWebHooks.WebhookPayloadPullRequest) => {
-        return `
-        prAction: <%= action %>      
-        pr标题: <%= title %>      
-        pr地址: <%= url %>      
-        pr状态: <%= state %>
-        pr注释: <%= content %>
-        pr提交人: <%= actionLogin %>
-        pr提交时间: <%= createdAt %>
-        pr更新时间: <%= updatedAt %>
-        pr关闭时间: <%= closedAt %>
-        pr合并时间: <%= mergedAt %>
-        prFrom: <%= from %>
-        prTo: <%= to %>
-      `;
+        return data;
       },
     },
     gitlab: {
       push: (data: GitLabWebHooks.PushEvent) => {
-        return ``;
+        return data;
       },
       tagPush: (data: GitLabWebHooks.TagPushEvent) => {
-        return ``;
+        return data;
       },
       issue: (data: GitLabWebHooks.IssueEvent) => {
-        return ``;
+        return data;
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
-        return ``;
+        return data;
       },
       mergeRequest: (data: GitLabWebHooks.MergeRequestEvent) => {
-        return ``;
+        return data;
       },
     },
-    // github: '[github]'+
-    //         'repository:<%= repository.full_name %>'+
-    //         '<%= pusher.name %> pushed on branch <%= ref %> with the following commit(s):'+
-    //         '<% _.forEach(commits, function(c) { %>[<%= c.id.substr(0, 7) %>] <%= c.message %><% }); %>'
   },
 };
