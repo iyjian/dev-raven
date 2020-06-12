@@ -8,21 +8,14 @@ RUN apk add --update tzdata \
   && mkdir -p /usr/src/app \
   && mkdir -p /usr/src/build
 
-RUN npm install -g yarn
-
 WORKDIR /usr/src/app
 
 ADD package.json /usr/src/app
 
 ADD yarn.lock /usr/src/app
 
-RUN yarn add .
-# RUN yarn \
-#   && rm -rf /usr/local/share/.cache/yarn
+RUN yarn install
 
 COPY . /usr/src/app
 
 RUN yarn run build
-
-# ENTRYPOINT ["yarn","run","start:prod"]
-# EXPOSE 3000
