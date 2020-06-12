@@ -14,8 +14,9 @@ ADD package.json /usr/src/app
 
 ADD yarn.lock /usr/src/app
 
-RUN yarn \
-  && rm -rf /usr/local/share/.cache/yarn
+RUN yarn add .
+# RUN yarn \
+#   && rm -rf /usr/local/share/.cache/yarn
 
 COPY . /usr/src/app
 
