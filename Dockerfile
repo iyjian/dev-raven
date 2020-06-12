@@ -8,6 +8,8 @@ RUN apk add --update tzdata \
   && mkdir -p /usr/src/app \
   && mkdir -p /usr/src/build
 
+RUN npm install -g yarn
+
 WORKDIR /usr/src/app
 
 ADD package.json /usr/src/app
