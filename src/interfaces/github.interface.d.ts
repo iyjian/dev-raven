@@ -4378,7 +4378,7 @@ export declare namespace Webhooks {
      */
     node_id: string;
     /**
-     * 2
+     * issue的编号(显示在页面上的编号，不是内部编号)
      */
     number: number;
     /**
