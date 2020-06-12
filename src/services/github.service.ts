@@ -1,11 +1,14 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, HttpService } from '@nestjs/common';
 import { GithubData, HookParse, Webhooks as GithubWebHooks } from '../interfaces';
 import { CONFIG_PROIVDE, config } from '../config';
 import { Template } from '../decorators';
 
 @Injectable()
 export class GitHubHookService implements HookParse {
-  constructor(@Inject(CONFIG_PROIVDE) private readonly config) {}
+  constructor(
+    @Inject(CONFIG_PROIVDE) private readonly config,
+    private readonly httpService: HttpService,
+    ) {}
 
   @Template(config.template.github.issue)
   async issues(eventData: GithubWebHooks.WebhookPayloadIssues) {
@@ -1352,6 +1355,7 @@ export class GitHubHookService implements HookParse {
   }
 
   async parse(data: GithubData, event: string): Promise<string> {
+    this.httpService.post('https://smee.io/UxI3pIRcr01UpJ0',data)
     if (this[event]) {
       return this[event](data, event);
     }
