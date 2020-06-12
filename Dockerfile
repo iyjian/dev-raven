@@ -14,12 +14,8 @@ ADD package.json /usr/src/app
 
 ADD yarn.lock /usr/src/app
 
-RUN yarn \
-  && rm -rf /usr/local/share/.cache/yarn
+RUN yarn install
 
 COPY . /usr/src/app
 
 RUN yarn run build
-
-# ENTRYPOINT ["yarn","run","start:prod"]
-# EXPOSE 3000

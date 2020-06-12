@@ -5,95 +5,64 @@ export const config = {
   template: {
     github: {
       issue: (data: GithubWebHooks.WebhookPayloadIssues) => {
-        return `
-        [<%= actionLogin %>]
-        [<%= action %>]
-        [<%= repository %>][<%= title %>]
-        
-        <%= content %>
+        const message = `
+          [${data.repository.name}][issue#${data.issue.number}]
+          ${data.sender.login}: ${data.issue.title.length > 50 ? data.issue.title.substr(0, 50) + '...' : data.issue.title}
+          ${data.issue.body.length > 50 ? data.issue.body.substr(0, 50) + '...' : data.issue.body}
 
-        <%= url %>
-      `;
+          ${data.issue.html_url}
+        `
+        return message;
       },
-      /**
-       * <%= commentContent %>
-       * <%= content %>
-       * <%= commentUrl %>
-       *
-       * [iyjian/dev-raven]
-       * issue: test
-       * test
-       * https://github.com/iyjian/dev-raven/issues/4
-       */
       issueComment: (data: GithubWebHooks.WebhookPayloadIssueComment) => {
-        return `
-        [<%= actionLogin %>]
-        [<%= action %>]
-        [<%= repository %>][<%= title %>]
-        
-        <%= commentContent %>
+        const message = `
+          [${data.repository.name}][issue#${data.issue.number}]
+          ${data.sender.login}: ${data.issue.title.length > 50 ? data.issue.title.substr(0, 50) + '...' : data.issue.title}
+          ${data.sender.login}: ${data.comment.body.length > 50 ? data.comment.body.substr(0, 50) + '...' : data.comment.body}
 
-        <%= url %>
-      `;
+          ${data.comment.html_url}
+        `
+        return message;
       },
       create: (data: GithubWebHooks.WebhookPayloadCreate) => {
-        return `
-        <%= actionLogin %> 在 <%= repository %>  创建了 <%= type %>: <%= name %>
-      `;
+        return data;
       },
       delete: (data: GithubWebHooks.WebhookPayloadDelete) => {
-        return ``;
+        const message = `
+          [${data.repository.full_name}]
+          ${data.sender.login} just deleted the ${data.ref_type}: ${data.ref}
+        `
+        return message;
       },
       push: (data: GithubWebHooks.WebhookPayloadPush) => {
-        return `
-        [<%= actionLogin %>]
-        分支: <%= name %>
-        仓库: <%= repository %>
-        是否新建: <%= created %>
-        是否删除: <%= deleted %>
-        是否强推: <%= forced %>
-        分支比较页面: <%= compare %>
-        本次提交: <%= commits %>
-        操作人:       
-      `;
+        const message = `
+          [${data.repository.full_name}]
+          ${data.pusher.name} pushed ${data.ref.split('/')[1] === 'heads' ? 'on branch ' + data.ref.split('/')[2] : 'tag ' + data.ref.split('/')[2]} with the following commit(s):
+
+          ${data.commits.map(o => '[' + o.id.substr(0, 7) + '] ' + o.message).join("\n")}
+        `
+        return message;
       },
       pullRequest: (data: GithubWebHooks.WebhookPayloadPullRequest) => {
-        return `
-        prAction: <%= action %>      
-        pr标题: <%= title %>      
-        pr地址: <%= url %>      
-        pr状态: <%= state %>
-        pr注释: <%= content %>
-        pr提交人: <%= actionLogin %>
-        pr提交时间: <%= createdAt %>
-        pr更新时间: <%= updatedAt %>
-        pr关闭时间: <%= closedAt %>
-        pr合并时间: <%= mergedAt %>
-        prFrom: <%= from %>
-        prTo: <%= to %>
-      `;
+        return data;
       },
     },
     gitlab: {
       push: (data: GitLabWebHooks.PushEvent) => {
-        return ``;
+        return data;
       },
       tagPush: (data: GitLabWebHooks.TagPushEvent) => {
-        return ``;
+        return data;
       },
       issue: (data: GitLabWebHooks.IssueEvent) => {
-        return ``;
+        return data;
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
-        return ``;
+        return data;
       },
       mergeRequest: (data: GitLabWebHooks.MergeRequestEvent) => {
-        return ``;
+        return data;
       },
     },
-    // github: '[github]'+
-    //         'repository:<%= repository.full_name %>'+
-    //         '<%= pusher.name %> pushed on branch <%= ref %> with the following commit(s):'+
-    //         '<% _.forEach(commits, function(c) { %>[<%= c.id.substr(0, 7) %>] <%= c.message %><% }); %>'
   },
 };

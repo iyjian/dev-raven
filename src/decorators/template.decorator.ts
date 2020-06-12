@@ -4,9 +4,8 @@ export function Template(template: Function) {
 
         descriptor.value = async function (...args: any[]) {
             const result =  await originMethod.apply(this, args);
-            return template(result)
+            return template(result).split(/\n/).map(o => o.trim()).join('\n').trim()
         };
         return descriptor;
     }
 }
-
