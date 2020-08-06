@@ -10,8 +10,8 @@ export const config = {
           [${data.repository.name}][issue#${data.issue.number}]
           ${data.sender.login}(${data.action} issue)
           
-          ${data.issue.title.length > 50 ? data.issue.title.substr(0, 50) + '...' : data.issue.title}
-          ${data.issue.body.length > 50 ? data.issue.body.substr(0, 50) + '...' : data.issue.body}
+          ${data.issue.title.length > 500 ? data.issue.title.substr(0, 500) + '...' : data.issue.title}
+          ${data.issue.body.length > 500 ? data.issue.body.substr(0, 500) + '...' : data.issue.body}
 
           ${data.issue.html_url}
         `
@@ -22,8 +22,8 @@ export const config = {
           [${data.repository.name}][issue#${data.issue.number}]
           ${data.sender.login}(new comment)
           
-          ${data.issue.title.length > 50 ? data.issue.title.substr(0, 50) + '...' : data.issue.title}
-          ${data.sender.login}: ${data.comment.body.length > 50 ? data.comment.body.substr(0, 50) + '...' : data.comment.body}
+          ${data.issue.title.length > 500 ? data.issue.title.substr(0, 500) + '...' : data.issue.title}
+          ${data.sender.login}: ${data.comment.body.length > 500 ? data.comment.body.substr(0, 500) + '...' : data.comment.body}
 
           ${data.comment.html_url}
         `
@@ -70,8 +70,8 @@ export const config = {
           [${data.repository.name}][issue#${data.object_attributes.iid}]
           ${data.user.name}(${data.object_attributes.action} issue)
           
-          ${data.object_attributes.title.length > 50 ? data.object_attributes.title.substr(0, 50) + '...' : data.object_attributes.title}
-          ${data.object_attributes.description.length > 50 ? data.object_attributes.description.substr(0, 50) + '...' : data.object_attributes.description}
+          ${data.object_attributes.title.length > 500 ? data.object_attributes.title.substr(0, 500) + '...' : data.object_attributes.title}
+          ${data.object_attributes.description.length > 500 ? data.object_attributes.description.substr(0, 500) + '...' : data.object_attributes.description}
 
           ${data.object_attributes.url}
         `;
@@ -83,8 +83,8 @@ export const config = {
           [${data.repository.name}][issue#${data.issue.iid}]
           ${data.user.name}(new comment)
           
-          ${data.issue.title.length > 50 ? data.issue.title.substr(0, 50) + '...' : data.issue.title}
-          ${data.user.name}: ${data.object_attributes.note.length > 50 ? data.object_attributes.note.substr(0, 50) + '...' : data.object_attributes.note}
+          ${data.issue.title.length > 500 ? data.issue.title.substr(0, 500) + '...' : data.issue.title}
+          ${data.user.name}: ${data.object_attributes.note.length > 500 ? data.object_attributes.note.substr(0, 500) + '...' : data.object_attributes.note}
 
           ${data.object_attributes.url}
         `;
