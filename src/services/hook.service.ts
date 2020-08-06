@@ -34,13 +34,21 @@ export class HookService {
     }
     if (this._isWechatWork(to)) {
       return this._sendWechatWorkCallback(to, msg);
-    } else {
+    }
+    else if(this._isWechatMp(to)){
+      return this._sendWechatMpCallback(to, msg);
+    }
+    else {
       return this._sendDefaultCallback(to, msg);
     }
   }
 
   private _isWechatWork(to: string) {
     return to.includes(this.config.wechatWorkHost);
+  }
+
+  private _isWechatMp(to: string){
+    return to.includes(this.config.wechatMpHost);
   }
 
   private _sendDefaultCallback(to: string, msg: string): Observable<any> {
@@ -74,5 +82,15 @@ export class HookService {
           return empty();
         }),
       );
+  }
+
+  private _sendWechatMpCallback(to:string, msg: string): Observable<any>{
+    return this.http
+        .get(to,{
+          params:{
+            title:"设备通知",
+            content: msg
+          }
+        })
   }
 }

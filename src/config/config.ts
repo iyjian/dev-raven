@@ -2,6 +2,7 @@ import { Webhooks as GithubWebHooks, GitLabWebHooks } from '../interfaces';
 export const config = {
   shortenUrlBase: 'https://s.bidwin.top/api/v1/shorten',
   wechatWorkHost: 'https://qyapi.weixin.qq.com',
+  wechatMpHost: 'https://pusher-mp.bolome.com', // 备注一下，这个推送是额外做的一个提供公众号推送的项目地址，非微信官方的地址
   template: {
     github: {
       issue: (data: GithubWebHooks.WebhookPayloadIssues) => {
@@ -59,7 +60,17 @@ export const config = {
         return data;
       },
       issue: (data: GitLabWebHooks.IssueEvent) => {
-        return data;
+        const message = `
+          [${data.repository.name}][issue#${data.object_attributes.iid}]
+          ${data.user.name}(${data.object_attributes.action} issue)
+          
+          ${data.object_attributes.title.length > 50 ? data.object_attributes.title.substr(0, 50) + '...' : data.object_attributes.title}
+          ${data.object_attributes.description.length > 50 ? data.object_attributes.description.substr(0, 50) + '...' : data.object_attributes.description}
+
+          ${data.object_attributes.url}
+        `;
+        return message;
+        // return data;
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
         return data;
