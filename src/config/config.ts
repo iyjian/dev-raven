@@ -79,7 +79,16 @@ export const config = {
         // return data;
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
-        return data;
+        const message = `
+          [${data.repository.name}][issue#${data.issue.iid}]
+          ${data.user.name}(new comment)
+          
+          ${data.issue.title.length > 50 ? data.issue.title.substr(0, 50) + '...' : data.issue.title}
+          ${data.user.name}: ${data.object_attributes.note.length > 50 ? data.object_attributes.note.substr(0, 50) + '...' : data.object_attributes.note}
+
+          ${data.object_attributes.url}
+        `;
+        return message;
       },
       mergeRequest: (data: GitLabWebHooks.MergeRequestEvent) => {
         return data;
