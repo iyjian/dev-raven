@@ -54,7 +54,13 @@ export const config = {
     },
     gitlab: {
       push: (data: GitLabWebHooks.PushEvent) => {
-        return data;
+        const message = `
+          [${data.repository.name}]
+          ${data.user_name} pushed ${data.ref.split('/')[1] === 'heads' ? 'on branch ' + data.ref.split('/')[2] : 'tag ' + data.ref.split('/')[2]} with the following commit(s):
+
+          ${data.commits.map(o => '[' + o.id.substr(0, 7) + '] ' + o.message).join("\n")}
+        `;
+        return message;
       },
       tagPush: (data: GitLabWebHooks.TagPushEvent) => {
         return data;
