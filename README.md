@@ -48,8 +48,9 @@ dev-raven是一个处理各类开发回调的接口，它可以将github、gitla
 以gitlab为例，如果你希望将gitlab的issue、commit、PR等消息通知到群中，你只需要构造以下接口地址：
 
 
-https://raven.iyjian.workers.dev?from=gitlab&to=***以上你获得的微信群hook地址***
-https://raven.iyjian.workers.dev?from=github&to=https://wx.zhongzhengtx.com/group/QeqFnaz
+https://raven.bidwin.top?from=gitlab&to=***以上你获得的微信群hook地址***
+https://raven.bidwin.top?from=github&to=https://wx.zhongzhengtx.com/group/QeqFnaz
+https://raven.bidwin.top?from=aliyundocker&to=https://wx.zhongzhengtx.com/group/QeqFnaz
 
 然后将以上参数填入gitlab的webhook地址即可。
 
