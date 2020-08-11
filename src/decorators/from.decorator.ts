@@ -27,17 +27,18 @@ export const From = createParamDecorator((data: any, ctx: ExecutionContext) => {
       HttpStatus.NOT_FOUND,
     );
   }
+
   return hookFrom;
 });
 
-export const HookEvent = createParamDecorator(
-  (data: any, ctx: ExecutionContext) => {
-    const request: Request = ctx.switchToHttp().getRequest();
-    const gitHub: string = request.get('X-GitHub-Event');
-    let gitlab: string = request.get('X-Gitlab-Event')
-      ? eventToMethod[request.get('X-Gitlab-Event')]
-      : '';
-    const defaultOther = '';
-    return gitHub || gitlab || defaultOther;
-  },
-);
+// export const HookEvent = createParamDecorator(
+//   (data: any, ctx: ExecutionContext) => {
+//     const request: Request = ctx.switchToHttp().getRequest();
+//     const gitHub: string = request.get('X-GitHub-Event');
+//     let gitlab: string = request.get('X-Gitlab-Event')
+//       ? eventToMethod[request.get('X-Gitlab-Event')]
+//       : '';
+//     const defaultOther = '';
+//     return gitHub || gitlab || defaultOther;
+//   },
+// );

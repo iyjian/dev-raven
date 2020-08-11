@@ -1,5 +1,5 @@
 import { Controller, Query, Post, Body } from '@nestjs/common';
-import { From, HookEvent } from './decorators';
+import { From } from './decorators';
 import { HookFrom, GithubData, AliyunData } from './interfaces';
 import { HookService } from './services';
 
@@ -11,11 +11,9 @@ export class AppController {
   async getHello(
     @From() from: HookFrom,
     @Query('to') to: string,
-    @Body() data: GithubData | AliyunData,
-    @HookEvent() hookEvent?: string,
+    @Body() data: GithubData | AliyunData
   ): Promise<string> {
-    if(!hookEvent) return '';
-    const msg = await this.hookService.getService(from).parse(data, hookEvent);
+    const msg = await this.hookService.getService(from).parse(data, from);
     if (msg) {
       this.hookService.toHook(decodeURIComponent(to), msg).subscribe();
     }
