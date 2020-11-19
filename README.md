@@ -35,8 +35,6 @@ https://raven.bidwin.top?from=raw&to=https://wx.zhongzhengtx.com/group/QeqFnaz
 
 
 
-
-
 用做通知的公众号模板（我选了两个，防止封模板）: 
 
 系统运行简报 OPENTM401692387 wxp18BgdHnOrt1rb6PPYH-yZYtCVjczIdzDxnDMwORk
