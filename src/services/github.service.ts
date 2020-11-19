@@ -1355,7 +1355,6 @@ export class GitHubHookService implements HookParse {
   }
 
   async parse(data: GithubData, event: string): Promise<string> {
-    this.httpService.post('https://smee.io/UxI3pIRcr01UpJ0',data).subscribe()
     if (this[event]) {
       return this[event](data, event);
     }
