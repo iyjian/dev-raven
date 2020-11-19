@@ -37,6 +37,7 @@ export class HookService {
   }
 
   toHook(to: string, msg: string): Observable<any> {
+    console.log(to, msg)
     if (!to) {
       console.log(`hook.service.ts - toHook - noTarget - to: ${to}`)
       return empty();
