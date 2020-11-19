@@ -99,7 +99,7 @@ export class HookService {
     return this.http
         .get(to,{
           params:{
-            title:"设备通知",
+            title: msg.split(/\n/)[0],
             content: msg
           }
         })

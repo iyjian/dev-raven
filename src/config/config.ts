@@ -2,7 +2,7 @@ import { Webhooks as GithubWebHooks, GitLabWebHooks } from '../interfaces';
 export const config = {
   shortenUrlBase: 'https://s.bidwin.top/api/v1/shorten',
   wechatWorkHost: 'https://qyapi.weixin.qq.com',
-  wechatMpHost: 'https://pusher-mp.bolome.com', // 备注一下，这个推送是额外做的一个提供公众号推送的项目地址，非微信官方的地址
+  wechatMpHost: 'https://h.tltr.top', // 备注一下，这个推送是额外做的一个提供公众号推送的项目地址，非微信官方的地址
   template: {
     github: {
       issue: (data: GithubWebHooks.WebhookPayloadIssues) => {
