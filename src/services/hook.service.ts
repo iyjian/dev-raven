@@ -42,14 +42,17 @@ export class HookService {
     }
     if (this._isWechatWork(to)) {
       // 企业微信的通知
+      console.log(`hook.service.ts - toHook - _isWechatWork - to: ${to}`)
       return this._sendWechatWorkCallback(to, msg);
     }
     else if(this._isWechatMp(to)){
       // 微信公众号的hook
+      console.log(`hook.service.ts - toHook - _isWechatMp - to: ${to}`)
       return this._sendWechatMpCallback(to, msg);
     }
     else {
       // 默认是用我自己做的微信通知
+      console.log(`hook.service.ts - toHook - _sendDefaultCallback - to: ${to}`)
       return this._sendDefaultCallback(to, msg);
     }
   }
