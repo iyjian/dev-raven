@@ -1,9 +1,9 @@
-import { Controller, Query, Post, Body } from '@nestjs/common';
-import { From } from './decorators';
+import { Controller, Query, Post, Body, Get } from '@nestjs/common';
+import { From, HookEvent } from './decorators';
 import { HookFrom, GithubData, AliyunData } from './interfaces';
 import { HookService } from './services';
 
-@Controller()
+@Controller('')
 export class AppController {
   constructor(private readonly hookService: HookService) {}
 
@@ -11,12 +11,13 @@ export class AppController {
   async getHello(
     @From() from: HookFrom,
     @Query('to') to: string,
-    @Body() data: GithubData | AliyunData
+    @Body() data: GithubData | AliyunData,
+    @HookEvent() hookEvent?: string
   ): Promise<string> {
     /**
      * getService方法依靠from=**从Service里挑一个然后调用这个service的parse方法
      */
-    const msg = await this.hookService.getService(from).parse(data, from);
+    const msg = await this.hookService.getService(from).parse(data, hookEvent);
     if (msg) {
       /**
        * 把msg按照to里指定的地址发出去
