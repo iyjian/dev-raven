@@ -2,6 +2,7 @@ export enum HookFrom {
   GITHUB="GITHUB",
   GITLAB ="GITLAB",
   ALIYUNDOCKER ="ALIYUNDOCKER",
+  RAW='RAW'
 }
 
 export interface HookParse {

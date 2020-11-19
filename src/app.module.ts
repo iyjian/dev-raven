@@ -6,6 +6,7 @@ import {
   GitHubHookService,
   AliyunDockerHookService,
   UrlService,
+  RawHookService
 } from './services';
 import { CONFIG_PROIVDE } from './config';
 import { config } from './config';
@@ -19,6 +20,7 @@ import { config } from './config';
     GitHubHookService,
     AliyunDockerHookService,
     UrlService,
+    RawHookService,
     {
       provide: CONFIG_PROIVDE,
       useValue: config,
