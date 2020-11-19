@@ -38,6 +38,7 @@ export class HookService {
 
   toHook(to: string, msg: string): Observable<any> {
     if (!to) {
+      console.log(`hook.service.ts - toHook - noTarget - to: ${to}`)
       return empty();
     }
     if (this._isWechatWork(to)) {
