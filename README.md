@@ -18,9 +18,7 @@ https://raven.bidwin.top?from=aliyundocker&to=https://wx.zhongzhengtx.com/group/
 ## from=raw 需要额外参数content=****，会将content里的内容作为文本发送，不做任何转换
 https://raven.bidwin.top?from=raw&to=https://wx.zhongzhengtx.com/group/QeqFnaz
 
-
 然后将以上参数填入gitlab的webhook地址即可。
-
 
 # 项目结构
 
