@@ -1,5 +1,5 @@
-export namespace GitLabWebHooks {
-  type PushEvent = {
+
+  export type PushEvent = {
     /**
      * object_kind=push
      */
@@ -52,7 +52,7 @@ export namespace GitLabWebHooks {
     total_commits_count: number;
   };
 
-  type TagPushEvent = {
+  export type TagPushEvent = {
     /**
      * object_kind=tag_push
      */
@@ -96,7 +96,7 @@ export namespace GitLabWebHooks {
     total_commits_count: number;
   };
 
-  type IssueEvent = {
+  export type IssueEvent = {
     /**
      * object_kind=issue
      */
@@ -213,7 +213,7 @@ export namespace GitLabWebHooks {
    * issue、pr、commits、code snippets
    * 在以上所有信息上标注的comment都会触发noteEvent
    */
-  type NoteEvent = {
+  export type NoteEvent = {
     /**
      * object_kind=note
      */
@@ -321,7 +321,7 @@ export namespace GitLabWebHooks {
     url: string;
   };
 
-  type MergeRequestEvent = {
+  export type MergeRequestEvent = {
     /**
      * object_kind=merge_request
      */
@@ -725,5 +725,4 @@ export namespace GitLabWebHooks {
     git_http_url: string;
     path_with_namespace: string;
     default_branch: string;
-  };
-}
+  }

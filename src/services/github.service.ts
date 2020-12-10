@@ -1,5 +1,5 @@
 import { Inject, Injectable, HttpService } from '@nestjs/common';
-import { GithubData, HookParse, Webhooks as GithubWebHooks } from '../interfaces';
+import { GithubData, HookParse, GithubWebHooks } from '../interfaces';
 import { CONFIG_PROIVDE, config } from '../config';
 import { Template } from '../decorators';
 

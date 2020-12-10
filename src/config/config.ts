@@ -1,4 +1,4 @@
-import { Webhooks as GithubWebHooks, GitLabWebHooks } from '../interfaces';
+import {GithubWebHooks, GitLabWebHooks} from './../interfaces';
 export const config = {
   shortenUrlBase: 'https://s.bidwin.top/api/v1/shorten',
   wechatWorkHost: 'https://qyapi.weixin.qq.com',
