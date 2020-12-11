@@ -33,32 +33,3 @@ https://r.tltr.top?from=raw&content=hello-world
   gitlab.service.ts
   raw.service.ts
 
-
-
-
-
-
-用做通知的公众号模板（我选了两个，防止封模板）: 
-
-系统运行简报 OPENTM401692387 wxp18BgdHnOrt1rb6PPYH-yZYtCVjczIdzDxnDMwORk
-
-{{first.DATA}}
-系统名称：{{keyword1.DATA}}
-简报内容：{{keyword2.DATA}}
-发布时间：{{keyword3.DATA}}
-{{remark.DATA}}
-
-报告生成通知 OPENTM411640916 SLX5hylOR8iMvPSm3F-fgXGOiKW0kdVKMOkCK1B7S7g
-
-{{first.DATA}}
-获取路径：{{keyword1.DATA}}
-报告期：{{keyword2.DATA}}
-{{remark.DATA}}
-
-
-微信群hook地址的获取步骤：
-
-1. 将微波特拉入某个你想要通知的群中。
-2. 拉入群后，一旦群内有人发言，则此群自动会记录到你名下。
-3. 向微波特发送【hook】指令即可获得群通知的链接。
-
