@@ -7,16 +7,19 @@ dev-raven是一个处理各类开发回调的接口，它可以将github、gitla
 以gitlab为例，如果你希望将gitlab的issue、commit、PR等消息通知到群中，你只需要构造以下接口地址：
 
 ## from=gitlab
-https://raven.bidwin.top?from=gitlab&to=***以上你获得的微信群hook地址***
+https://r.tltr.top?from=gitlab&to=***以上你获得的微信群hook地址***
 
 ## from=github
-https://raven.bidwin.top?from=github&to=https://wx.zhongzhengtx.com/group/QeqFnaz
+https://r.tltr.top?from=github&to=https://wx.zhongzhengtx.com/group/QeqFnaz
 
 ## from=aliyundocker
-https://raven.bidwin.top?from=aliyundocker&to=https://wx.zhongzhengtx.com/group/QeqFnaz
+https://r.tltr.top?from=aliyundocker&to=https://wx.zhongzhengtx.com/group/QeqFnaz
 
 ## from=raw 需要额外参数content=****，会将content里的内容作为文本发送，不做任何转换
-https://raven.bidwin.top?from=raw&to=https://wx.zhongzhengtx.com/group/QeqFnaz
+https://r.tltr.top?from=raw&to=https://wx.zhongzhengtx.com/group/QeqFnaz
+
+## 如果没有to参数，则不做审核通知，只是根据from的定义将消息做格式转化
+https://r.tltr.top?from=raw&content=hello-world
 
 然后将以上参数填入gitlab的webhook地址即可。
 
