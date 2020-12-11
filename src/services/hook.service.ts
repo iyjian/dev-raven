@@ -98,8 +98,8 @@ export class HookService {
 
   private _sendWechatMpCallback(to:string, msg: string): Observable<any>{
     return this.http
-        .get(to,{
-          params:{
+        .get(to, {
+          params: {
             title: msg.split(/\n/)[0],
             content: msg
           }
