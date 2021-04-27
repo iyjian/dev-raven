@@ -67,16 +67,15 @@ export const config = {
       },
       issue: (data: GitLabWebHooks.IssueEvent) => {
         const message = `
-          [${data.repository.name}][issue#${data.object_attributes.iid}]
-          ${data.user.name}(${data.object_attributes.action} issue)
+          [${data.repository.name}] [${data.user.name}] [${data.object_attributes.action} #${data.object_attributes.iid}]
           
           ${data.object_attributes.title.length > 500 ? data.object_attributes.title.substr(0, 500) + '...' : data.object_attributes.title}
+
           ${data.object_attributes.description.length > 500 ? data.object_attributes.description.substr(0, 500) + '...' : data.object_attributes.description}
 
           ${data.object_attributes.url}
         `;
         return message;
-        // return data;
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
         const message = `

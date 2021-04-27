@@ -598,11 +598,11 @@ export class GitLabHookService implements HookParse {
     return `
       [${project.path_with_namespace}] ${user.username} ${object_attributes.action} an issue:
 
-      [标题]: ${object_attributes.title}
+      ${object_attributes.title}
       
-      [内容]: ${object_attributes.description}
+      ${object_attributes.description}
 
-      [link]: ${object_attributes.url}
+      ${object_attributes.url}
     `;
   }
 
