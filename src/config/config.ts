@@ -79,7 +79,7 @@ export const config = {
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
         const message = `
-          [${data.repository.name}][issue#${data.issue.iid}]
+          [${data.repository.name}][issue#${data.issue.id}]
           ${data.user.name}(new comment)
           
           ${data.issue.title.length > 500 ? data.issue.title.substr(0, 500) + '...' : data.issue.title}
