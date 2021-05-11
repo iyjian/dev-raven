@@ -79,8 +79,9 @@ export const config = {
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
         console.log(JSON.stringify(data, null, 2))
+        // 注意下面的issue.iid就是idd不是id
         const message = `
-          [${data.repository.name}][issue#${data.issue.id}]
+          [${data.repository.name}][issue#${data.issue.iid}]
           ${data.user.name}(new comment)
           
           ${data.issue.title.length > 500 ? data.issue.title.substr(0, 500) + '...' : data.issue.title}
