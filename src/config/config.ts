@@ -78,6 +78,7 @@ export const config = {
         return message;
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
+        console.log(JSON.stringify(data, null, 2))
         const message = `
           [${data.repository.name}][issue#${data.issue.id}]
           ${data.user.name}(new comment)
