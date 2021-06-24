@@ -21,7 +21,7 @@ configure({
 		},
 		gitlab: {
 			appenders: [
-				'gitlab', 'console'
+				'gitlab'
 			],
 			level: 'debug'
 		}
