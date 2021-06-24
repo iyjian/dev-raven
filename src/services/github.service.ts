@@ -1355,7 +1355,6 @@ export class GitHubHookService implements HookParse {
   }
 
   async parse(data: GithubData, event: string): Promise<string> {
-    console.log(this[event], `event: ${event}`)
     if (this[event]) {
       return this[event](data, event);
     }

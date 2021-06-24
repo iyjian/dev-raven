@@ -65,6 +65,9 @@ export const config = {
       tagPush: (data: GitLabWebHooks.TagPushEvent) => {
         return data;
       },
+      /**
+       * 新建、修改、关闭issue等回调，issue的评论在note事件中
+      */
       issue: (data: GitLabWebHooks.IssueEvent) => {
         const message = `
           [${data.repository.name}] [${data.user.name}] [${data.object_attributes.action} #${data.object_attributes.iid}]
@@ -79,22 +82,22 @@ export const config = {
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
         /**
-         * note有四种，现在哥们只处理第一种，就是在issue里的comment
-         *    Comment on issue:         data.object_attributes.noteable_type === 'Issue'
-         *    Comment on commit:        data.object_attributes.noteable_type === 'Commit'
-         *    Comment on code snippet:  data.object_attributes.noteable_type === 'Snippet'
-         *    Comment on merge request: data.object_attributes.noteable_type === 'MergeRequest'
+         * note有四种，现在只处理了comment on issue
          * 
+         * Comment on issue:         data.object_attributes.noteable_type === 'Issue'
+         * Comment on commit:        data.object_attributes.noteable_type === 'Commit'
+         * Comment on code snippet:  data.object_attributes.noteable_type === 'Snippet'
+         * Comment on merge request: data.object_attributes.noteable_type === 'MergeRequest'
         */
         
         // TODO: 要加个中间件把请求和返回都记下来
-        console.log(JSON.stringify(data, null, 2))
+        // console.log(JSON.stringify(data, null, 2))
         
         if (data.object_attributes.noteable_type !== 'Issue') {
           return ''
         }
 
-        // 注意下面的issue.iid就是idd不是id
+        // 注意下面的issue.iid 就是idd不是id
         const message = `
           [${data.repository.name}][issue#${data.issue.iid}]
           ${data.user.name}(new comment)
