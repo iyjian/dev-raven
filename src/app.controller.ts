@@ -16,7 +16,7 @@ export class AppController {
     @HookEvent() hookEvent?: string
   ): Promise<string> {
     const logger = getLogger('gitlab')
-    logger.debug(data)
+    logger.debug(JSON.stringify(data, null, 2))
     /**
      * getService方法依靠from=**从Service里挑一个然后调用这个service的parse方法
      * 
