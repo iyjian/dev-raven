@@ -588,6 +588,10 @@
     updated_by_id: number[];
     updated_at: string[];
     labels: Labels;
+    assignees: {
+      previous: User[],
+      current: User[]
+    }
   };
 
   type Labels = {

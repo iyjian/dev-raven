@@ -69,7 +69,14 @@ export const config = {
        * 新建、修改、关闭issue等回调，issue的评论在note事件中
       */
       issue: (data: GitLabWebHooks.IssueEvent) => {
-        const message = `
+        if (data.object_attributes.action === 'update' && 'assignees' in data.changes) {
+          return `
+            [${data.repository.name}] [${data.user.name}] [${data.object_attributes.action} #${data.object_attributes.iid}]
+
+            issue分配给了: ${data.changes.assignees.current.map(o => o.name).join(',')}
+          `
+        } else {
+          return `
           [${data.repository.name}] [${data.user.name}] [${data.object_attributes.action} #${data.object_attributes.iid}]
           
           ${data.object_attributes.title.length > 500 ? data.object_attributes.title.substr(0, 500) + '...' : data.object_attributes.title}
@@ -78,7 +85,7 @@ export const config = {
 
           ${data.object_attributes.url}
         `;
-        return message;
+        }
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
         /**
