@@ -82,15 +82,16 @@ export const config = {
             issue分配给了: ${data.changes.assignees.current.map(o => o.name).join(',')}
           `
         } else {
-          return `
-          [${data.repository.name}] [${data.user.name}] [${data.object_attributes.action} #${data.object_attributes.iid}]
+          // return `
+          // [${data.repository.name}] [${data.user.name}] [${data.object_attributes.action} #${data.object_attributes.iid}]
           
-          ${data.object_attributes.title.length > 500 ? data.object_attributes.title.substr(0, 500) + '...' : data.object_attributes.title}
+          // ${data.object_attributes.title.length > 500 ? data.object_attributes.title.substr(0, 500) + '...' : data.object_attributes.title}
 
-          ${data.object_attributes.description.length > 500 ? data.object_attributes.description.substr(0, 500) + '...' : data.object_attributes.description}
+          // ${data.object_attributes.description.length > 500 ? data.object_attributes.description.substr(0, 500) + '...' : data.object_attributes.description}
 
-          ${data.object_attributes.url}
-        `;
+          // ${data.object_attributes.url}
+          // `;
+          return ''
         }
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
