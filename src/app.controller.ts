@@ -1,4 +1,4 @@
-import { Controller, Query, Post, Body, Get } from '@nestjs/common';
+import { Controller, Query, Post, Body, /*Get*/ } from '@nestjs/common';
 import { From, HookEvent } from './decorators';
 import { HookFrom, GithubData, AliyunData } from './interfaces';
 import { HookService } from './services';
