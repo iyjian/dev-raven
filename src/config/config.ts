@@ -69,7 +69,13 @@ export const config = {
        * 新建、修改、关闭issue等回调，issue的评论在note事件中
       */
       issue: (data: GitLabWebHooks.IssueEvent) => {
-        if (data.object_attributes.action === 'update' && 'assignees' in data.changes) {
+        if (data.object_attributes.action === 'close') {
+          return `
+            [${data.repository.name}] [${data.user.name}] [${data.object_attributes.action} #${data.object_attributes.iid}]
+
+            issue已关闭
+          `
+        } else if (data.object_attributes.action === 'update' && 'assignees' in data.changes) {
           return `
             [${data.repository.name}] [${data.user.name}] [${data.object_attributes.action} #${data.object_attributes.iid}]
 
