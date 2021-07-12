@@ -83,7 +83,7 @@ export const config = {
 
             issue分配给了: ${data.changes.assignees.current.map(o => o.name).join(',')}
           `
-        } else {
+        } else if (data.object_attributes.action === 'open') {
           return `
           [${data.repository.name}] [${data.user.name}] [${data.object_attributes.action} #${data.object_attributes.iid}]
           
@@ -93,6 +93,8 @@ export const config = {
 
           ${data.object_attributes.url}
           `;
+        } else {
+          return ''
         }
       },
       note: (data: GitLabWebHooks.NoteEvent) => {
