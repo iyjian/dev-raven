@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+  raven:
+    build: .
+    image: iyjian/raven
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./logs:/usr/src/app/logs      
+    command: "yarn run start:prod"
