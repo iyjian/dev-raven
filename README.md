@@ -1,6 +1,8 @@
 # dev-raven
 
-dev-raven是一个同步其他应用回调的服务，它可以将github、gitlab、docker hub等回调消息同步到企业微信群、个人微信群、邮箱等。
+dev-raven是webhook转发工具，它可以将github、gitlab、docker hub等webhook消息转发到企业微信群、个人微信群、邮箱等。
+
+我希望在微信群或者是企业微信群里收到github的回调通知，比如代码的提交、PR、新建issue、issue回复以及状态变更等，于是做了这个工具。它负责将各类webhook消息统一转化为统一的通知标题，通知内容并发送到企业微信群、个人微信群、邮箱等。通过在参数上指定from和to,就可以得到一个转发服务地址，将它配置到回调地址中即可。
 
 ## 启动
 
