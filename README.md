@@ -12,11 +12,11 @@ dev-raven是一个webhook转发服务，旨在帮助团队协作更加高效。�
 
 `https://r.tltr.top?from=gitlab&to=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxx-xxxx`
 
-![config github webhook](/docs/github-webhook-config.png?raw=true | width=600)
+<img src="/docs/github-webhook-config.png" width="600"/>
 
 配置完成后即可在企业微信群中收到github的提交、issue事件了。
 
-![github push in wxgroup](/docs/github-push-to-wxgroup.jpeg?raw=true | width=300)
+<img src="/docs/github-push-to-wxgroup.jpeg" width="300"/>
 
 注意：以上示例中的 `https://r.tltr.top` 是 dev-raven 的一个公网部署地址，如不希望使用公开的服务，需要替换成私有部署的地址。
 
