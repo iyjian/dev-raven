@@ -6,6 +6,20 @@ dev-raven是一个webhook转发服务，旨在帮助团队协作更加高效。�
 
 通过dev-raven，你可以在微信或企业微信群中实时收到github的回调通知，从而更加方便地进行团队协作。
 
+## 快速使用
+
+比如希望将github中的事件推送到企业微信群，需要构造以下地址并配置到github的webhook配置中:
+
+`https://r.tltr.top?from=gitlab&to=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxx-xxxx`
+
+![config github webhook](/docs/github-webhook-config.png?raw=true)
+
+配置完成后即可在企业微信群中收到github的提交、issue事件了。
+
+![github push in wxgroup](/docs/github-push-to-wxgroup.jpeg?raw=true)
+
+注意：以上示例中的 `https://r.tltr.top` 是 dev-raven 的一个公网部署地址，如不希望使用公开的服务，需要替换成私有部署的地址。
+
 ## 启动
 
 ### docker-compose  
@@ -27,15 +41,18 @@ pnpm i
 pnpm start:dev
 ```
 
-## 用法示例
+## 其他用法示例
 
 以下是几个构造 webhook 地址的例子：
 
-- GitLab webhook 地址：`https://r.tltr.top?from=gitlab&to=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxx-xxxx`
-- GitHub webhook 地址：`https://r.tltr.top?from=github&to=mymail@address.com`
-- 阿里云 Docker webhook 地址：`https://r.tltr.top?from=aliyundocker&to=mymail@address.com`
+- github推送到邮箱的服务地址：
+`https://r.tltr.top?from=github&to=mymail@address.com`
+
+- 阿里云docker推送到邮箱的服务地址：
+`https://r.tltr.top?from=aliyundocker&to=mymail@address.com`
+
 - `from=raw` 需要额外的参数 `content=****`，会将 `content` 里的内容作为文本发送，不做任何转换：`https://r.tltr.top?from=raw&content=helloworld&to=mymail@address.com`
 - 如果不带 `to` 参数，则不会转发到任何地方，只是根据 `from` 做消息内容的转化，方便调试：`https://r.tltr.top?from=raw&content=hello-world`
 
-注意：以上示例中的 `https://r.tltr.top` 是 dev-raven 的地址，如不希望使用我的服务，需要替换成你自己的地址。
+
 
