@@ -22,6 +22,7 @@ export class AppController {
     @EventType() eventType?: string,
     @Body() payload?: any,
   ): Promise<NotifyMessage> {
+    console.log(payload);
     const targetType = this.transformService.getTargetType(to);
 
     this.logger.debug(
