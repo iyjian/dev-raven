@@ -1,4 +1,5 @@
-import { Controller, Query, Post, Body, Get, Logger } from '@nestjs/common';
+import { Controller, Query, Post, Body, Get, Logger, Req } from '@nestjs/common';
+import {Request} from 'express'
 import { EventType } from './core/decorators';
 import { SourcePlatform } from './interfaces';
 import {
@@ -17,19 +18,25 @@ export class AppController {
 
   @Post('')
   async raven(
+    @Req() req: Request,
     @Query('from') from: SourcePlatform,
     @Query('to') to?: string,
     @EventType() eventType?: string,
     @Body() payload?: any,
   ): Promise<NotifyMessage> {
-    console.log(payload);
+    const contentType = req.get('Content-Type')
     const targetType = this.transformService.getTargetType(to);
 
     this.logger.debug(
-      `事件来源: ${from} 事件类型: ${eventType} 发送目标: ${to} 发送类型: ${targetType}`,
+      `事件来源: ${from} 事件类型: ${eventType} 发送目标: ${to} 发送类型: ${targetType} contentType: ${contentType}`,
     );
 
     const transformer = this.transformService.getTransformer(from, eventType);
+
+    if (from === 'github' && req.get('Content-Type') === 'application/x-www-form-urlencoded') {
+      // 兼容github application/x-www-form-urlencoded 回调
+      payload = JSON.parse(payload.payload)
+    }
 
     const notifyMessage = transformer(payload);
 

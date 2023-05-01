@@ -13,7 +13,7 @@ export class AllExceptionFilter implements ExceptionFilter {
   private readonly logger = new Logger(AllExceptionFilter.name);
   catch(exception: unknown, host: ArgumentsHost) {
     console.log(exception);
-    Sentry.captureException(exception);
+    // Sentry.captureException(exception);
     if (host.getType() === 'http') {
       const ctx = host.switchToHttp();
       const response = ctx.getResponse();
