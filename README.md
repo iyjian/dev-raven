@@ -12,7 +12,7 @@ dev-raven是一个webhook转发服务，旨在帮助团队协作更加高效。�
 
 `https://r.tltr.top?from=gitlab&to=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxx-xxxx`
 
-<img src="/docs/github-webhook-config.png" width="600"/>
+<img src="/docs/github-webhook-config.png" width="800"/>
 
 配置完成后即可在企业微信群中收到github的提交、issue事件了。
 
