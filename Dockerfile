@@ -18,3 +18,5 @@ RUN pnpm i
 COPY . /usr/src/app
 
 RUN pnpm build && pnpm prune --prod
+
+ENTRYPOINT ["pnpm", "start:prod"]
