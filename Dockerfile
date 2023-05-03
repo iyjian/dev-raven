@@ -18,5 +18,3 @@ RUN pnpm i
 COPY . /usr/src/app
 
 RUN pnpm build && pnpm prune --prod
-
-CMD ["dist/main"]
