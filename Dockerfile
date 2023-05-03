@@ -19,4 +19,4 @@ COPY . /usr/src/app
 
 RUN pnpm build && pnpm prune --prod
 
-CMD ["pnpm", "start:prod"]
+CMD ["node", "dist/main"]
