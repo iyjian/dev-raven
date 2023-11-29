@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   raven:
-    image: iyjian/raven
+    image: iyjian/dev-raven
     restart: always
     env_file:
       - .env
