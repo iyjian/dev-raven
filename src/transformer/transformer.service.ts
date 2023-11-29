@@ -134,20 +134,21 @@ export class TransformerService {
     let content: string;
 
     if (payload.changes.closed_at) {
+      content = `${payload.repository.name} ${payload.object_attributes.title}(已关闭)
+
+      ${payload.object_attributes.url}`;
+    } else {
       content = `${payload.repository.name} ${payload.object_attributes.title}
-      已关闭`;
+      当前责任人: ${
+        payload.assignees
+          ? payload.assignees
+              .map((assignee) => assignee.name)
+              .join(',')
+          : ''
+      }
+
+      ${payload.object_attributes.url}`;
     }
-
-    content = `${payload.repository.name} ${payload.object_attributes.title}
-               当前责任人: ${
-                 payload.assignees
-                   ? payload.assignees
-                       .map((assignee) => assignee.name)
-                       .join(',')
-                   : ''
-               }
-
-               ${payload.object_attributes.url}`;
 
     return {
       title: ``,

@@ -31,7 +31,7 @@ export class AppController {
       `事件来源: ${from} 事件类型: ${eventType} 发送目标: ${to} 发送类型: ${targetType} contentType: ${contentType}`,
     );
 
-    const transformer = this.transformService.getTransformer(from, eventType);
+    const transformer = this.transformService.getTransformer(from, eventType).bind(this.transformService);
 
     if (from === 'github' && req.get('Content-Type') === 'application/x-www-form-urlencoded') {
       // 兼容github application/x-www-form-urlencoded 回调
