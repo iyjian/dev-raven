@@ -58,14 +58,21 @@ pnpm start:dev
 
 以下是几个构造webhook转发服务的例子：
 
-- 把github的事件消息转发到邮箱的webhook地址：
+- 构造一个把github的事件消息转发到邮箱的webhook地址：
 `https://r.tltr.top?from=github&to=mymail@address.com`
 
-- 把阿里云docker的事件消息转发到邮箱的webhook地址：
+- 构造一个把阿里云docker的事件消息转发到邮箱的webhook地址：
 `https://r.tltr.top?from=aliyundocker&to=mymail@address.com`
 
-- `from=raw` 需要额外的参数 `content=****`，会将 `content` 里的内容作为文本发送，不做任何转换：`https://r.tltr.top?from=raw&content=helloworld&to=mymail@address.com`
-- 如果不带 `to` 参数，则不会转发到任何地方，只是根据 `from` 做消息内容的转化，方便调试：`https://r.tltr.top?from=raw&content=hello-world`
+- 构造一个发送helloworld到企业微信群的webhook地址:
+`https://r.tltr.top?from=raw&content=helloworld&to=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxx-xxxx`
+
+> from=raw 需要额外的参数 content=****，会将 content 里的内容作为文本发送，不做任何转换。
+
+- 构造一个webhook地址，只是在http response中返回解析后的数据但并不做转发
+`https://r.tltr.top?from=github`
+
+> 如果不带 to 参数，则不会转发到任何地方，只是根据 from 做消息内容的转化，方便调试。
 
 
 
