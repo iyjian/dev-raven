@@ -442,7 +442,7 @@ type WikiPageAttributes = {
   action: string;
 };
 
-type PipelineEvent = {
+export type PipelineEvent = {
   object_kind: string;
   object_attributes: PipelineAttributes;
   user: User;

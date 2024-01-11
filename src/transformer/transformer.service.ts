@@ -60,6 +60,8 @@ export class TransformerService {
             return this.gitlabIssue;
           case 'note':
             return this.gitlabNote;
+          case 'pipeline':
+            return this.gitlabPipeline;
           default:
             return this.dummyTransform;
         }
@@ -165,6 +167,15 @@ export class TransformerService {
       title: `comment:`,
       content: this.trim(content),
     };
+  }
+
+  gitlabPipeline(payload: GitLabWebHooks.PipelineEvent) {
+    const content = `${payload.project.name}: ${payload.builds.map(build => build.stage + '(' + build.status + ')').join(' ')}`
+
+    return {
+      title: 'gitlab pipeline:',
+      content: this.trim(content)
+    }
   }
 
   githubPush(data: GithubWebHooks.WebhookPayloadPush): NotifyMessage {
