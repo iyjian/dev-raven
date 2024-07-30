@@ -38,7 +38,8 @@ export class TransformerService {
       )
     ) {
       return 'email';
-    } else if (/h\.tltr\.top/.test(targetAddress)) {
+    } else if (/h\.tltr\.top/.test(targetAddress) || /lark\.tiusolution\.com/.test(targetAddress)) {
+      // 不同的targetType应当分类为邮件，url（post), url(get) 而不应该用wechatGroup / wecomGroup来分类
       return 'wechatGroup';
     } else if (/qyapi\.weixin\.qq\.com/.test(targetAddress)) {
       return 'wecomGroup';
