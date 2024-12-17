@@ -44,6 +44,9 @@ importers:
       helmet:
         specifier: ^6.1.5
         version: 6.2.0
+      jmespath:
+        specifier: ^0.16.0
+        version: 0.16.0
       lodash:
         specifier: ^4.17.15
         version: 4.17.21
@@ -81,6 +84,9 @@ importers:
       '@types/jest':
         specifier: 25.1.4
         version: 25.1.4
+      '@types/jmespath':
+        specifier: ^0.15.2
+        version: 0.15.2
       '@types/lodash':
         specifier: ^4.14.149
         version: 4.17.13
@@ -549,6 +555,9 @@ packages:
 
   '@types/jest@25.1.4':
     resolution: {integrity: sha512-QDDY2uNAhCV7TMCITrxz+MRk1EizcsevzfeS6LykIlq2V1E5oO4wXG8V2ZEd9w7Snxeeagk46YbMgZ8ESHx3sw==}
+
+  '@types/jmespath@0.15.2':
+    resolution: {integrity: sha512-pegh49FtNsC389Flyo9y8AfkVIZn9MMPE9yJrO9svhq6Fks2MwymULWjZqySuxmctd3ZH4/n7Mr98D+1Qo5vGA==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -2298,6 +2307,10 @@ packages:
     resolution: {integrity: sha512-hHFJROBTqZahnO+X+PMtT6G2/ztqAZJveGqz//FnWWHurizkD05PQGzRZOhF3XP6z7SJmL+5tCfW8qV06JypwQ==}
     engines: {node: '>= 8.3'}
     hasBin: true
+
+  jmespath@0.16.0:
+    resolution: {integrity: sha512-9FzQjJ7MATs1tSpnco1K6ayiYE3figslrXA72G2HQ/n76RzvYlofyi5QM+iX4YRs/pu3yzxlVQSST23+dMDknw==}
+    engines: {node: '>= 0.6.0'}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -4459,6 +4472,8 @@ snapshots:
     dependencies:
       jest-diff: 25.5.0
       pretty-format: 25.5.0
+
+  '@types/jmespath@0.15.2': {}
 
   '@types/json-schema@7.0.15': {}
 
@@ -6718,6 +6733,8 @@ snapshots:
       - canvas
       - supports-color
       - utf-8-validate
+
+  jmespath@0.16.0: {}
 
   js-tokens@4.0.0: {}
 

@@ -7,6 +7,7 @@ import {
   TransformerService,
 } from './transformer/transformer.service';
 import { SenderService } from './sender/sender.service';
+import jmespath from 'jmespath'
 
 @Controller('')
 export class AppController {
@@ -21,6 +22,7 @@ export class AppController {
     @Req() req: Request,
     @Query('from') from: SourcePlatform,
     @Query('to') to?: string,
+    @Query('filter') filter?: string,
     @EventType() eventType?: string,
     @Body() payload?: any,
   ): Promise<NotifyMessage> {
@@ -39,6 +41,13 @@ export class AppController {
     }
 
     const notifyMessage = transformer(payload);
+
+    const filtered = jmespath.search(payload, filter)
+
+    if (filter && (!filtered || filtered.length === 0)) {
+      this.logger.debug(`事件来源: ${from} 事件类型: ${eventType} 发送目标: ${to} 发送类型: ${targetType} contentType: ${contentType} - 已忽略`)
+      return notifyMessage
+    }
 
     switch (targetType) {
       case 'email':
