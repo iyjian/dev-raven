@@ -32,19 +32,27 @@ export class AppController {
     this.logger.debug(
       `事件来源: ${from} 事件类型: ${eventType} 发送目标: ${to} 发送类型: ${targetType} contentType: ${contentType}`,
     );
-
-    const transformer = this.transformService.getTransformer(from, eventType).bind(this.transformService);
-
-    if (from === 'github' && req.get('Content-Type') === 'application/x-www-form-urlencoded') {
-      // 兼容github application/x-www-form-urlencoded 回调
-      payload = JSON.parse(payload.payload)
+  
+    let transformerPayload = payload;
+  
+    if (from === 'gitlab' && contentType === 'application/json') {
+      // 根据GitLab的事件类型处理payload
+      if (eventType === 'issue' && payload.object_attributes && payload.object_attributes.labels) {
+        // 对于issue类型的事件，标签可能在object_attributes中
+        transformerPayload = { ...payload, labels: payload.object_attributes.labels };
+      } else if (eventType === 'note' && payload.issue && payload.issue.labels) {
+        // 对于note（评论）类型的事件，标签可能在issue对象中
+        transformerPayload = { ...payload, labels: payload.issue.labels };
+      }
     }
-
-    const notifyMessage = transformer(payload);
-
+  
+    const transformer = this.transformService.getTransformer(from, eventType).bind(this.transformService);
+    const notifyMessage = transformer(transformerPayload);
+  
+    // 应用过滤器逻辑
     if (filter) {
-      const filtered = jmespath.search(payload, filter)
-      if (!filtered || filtered?.length === 0) {
+      const filtered = jmespath.search(transformerPayload, filter)
+      if (!filtered || filtered.length === 0) {
         this.logger.debug(`事件来源: ${from} 事件类型: ${eventType} 发送目标: ${to} 发送类型: ${targetType} contentType: ${contentType} - 已忽略`)
         return notifyMessage
       }
@@ -59,7 +67,9 @@ export class AppController {
         );
         break;
       case 'wechatGroup':
-        this.senderService.sendWechatGroup(to, notifyMessage.content);
+        this.senderService.sendWechatGroup(to, notifyMessage.content).catch((e) => {
+          console.log(e.message)
+        });
         break;
       case 'wecomGroup':
         this.senderService.sendWecomGroup(to, notifyMessage.content);
