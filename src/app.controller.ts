@@ -23,6 +23,7 @@ export class AppController {
     @Query('from') from: SourcePlatform,
     @Query('to') to?: string,
     @Query('filter') filter?: string,
+    @Query('content') content?: string,
     @EventType() eventType?: string,
     @Body() payload?: any,
   ): Promise<NotifyMessage> {
@@ -40,7 +41,7 @@ export class AppController {
       payload = JSON.parse(payload.payload)
     }
 
-    const notifyMessage = transformer(payload);
+    const notifyMessage = payload?transformer(payload):content;
 
     if (filter) {
       const filtered = jmespath.search(payload, filter)
