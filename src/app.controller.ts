@@ -41,7 +41,7 @@ export class AppController {
       payload = JSON.parse(payload.payload)
     }
 
-    const notifyMessage = payload?transformer(payload):content;
+    const notifyMessage = content??transformer(payload);
 
     if (filter) {
       const filtered = jmespath.search(payload, filter)
