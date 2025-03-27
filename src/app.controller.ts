@@ -1,5 +1,13 @@
-import { Controller, Query, Post, Body, Get, Logger, Req } from '@nestjs/common';
-import {Request} from 'express'
+import {
+  Controller,
+  Query,
+  Post,
+  Body,
+  Get,
+  Logger,
+  Req,
+} from '@nestjs/common';
+import { Request } from 'express';
 import { EventType } from './core/decorators';
 import { SourcePlatform } from './interfaces';
 import {
@@ -7,7 +15,7 @@ import {
   TransformerService,
 } from './transformer/transformer.service';
 import { SenderService } from './sender/sender.service';
-import jmespath from 'jmespath'
+import jmespath from 'jmespath';
 
 @Controller('')
 export class AppController {
@@ -27,27 +35,34 @@ export class AppController {
     @EventType() eventType?: string,
     @Body() payload?: any,
   ): Promise<NotifyMessage> {
-    const contentType = req.get('Content-Type')
+    const contentType = req.get('Content-Type');
     const targetType = this.transformService.getTargetType(to);
 
     this.logger.debug(
       `事件来源: ${from} 事件类型: ${eventType} 发送目标: ${to} 发送类型: ${targetType} contentType: ${contentType}`,
     );
 
-    const transformer = this.transformService.getTransformer(from, eventType).bind(this.transformService);
+    const transformer = this.transformService
+      .getTransformer(from, eventType)
+      .bind(this.transformService);
 
-    if (from === 'github' && req.get('Content-Type') === 'application/x-www-form-urlencoded') {
+    if (
+      from === 'github' &&
+      req.get('Content-Type') === 'application/x-www-form-urlencoded'
+    ) {
       // 兼容github application/x-www-form-urlencoded 回调
-      payload = JSON.parse(payload.payload)
+      payload = JSON.parse(payload.payload);
     }
 
-    const notifyMessage = content??transformer(payload);
+    const notifyMessage = content ? { content } : transformer(payload);
 
     if (filter) {
-      const filtered = jmespath.search(payload, filter)
+      const filtered = jmespath.search(payload, filter);
       if (!filtered || filtered?.length === 0) {
-        this.logger.debug(`事件来源: ${from} 事件类型: ${eventType} 发送目标: ${to} 发送类型: ${targetType} contentType: ${contentType} - 已忽略`)
-        return notifyMessage
+        this.logger.debug(
+          `事件来源: ${from} 事件类型: ${eventType} 发送目标: ${to} 发送类型: ${targetType} contentType: ${contentType} - 已忽略`,
+        );
+        return notifyMessage;
       }
     }
 

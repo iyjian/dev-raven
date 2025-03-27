@@ -38,7 +38,10 @@ export class TransformerService {
       )
     ) {
       return 'email';
-    } else if (/h\.tltr\.top/.test(targetAddress) || /lark\.tiusolution\.com/.test(targetAddress)) {
+    } else if (
+      /h\.tltr\.top/.test(targetAddress) ||
+      /lark\.tiusolution\.com/.test(targetAddress)
+    ) {
       // 不同的targetType应当分类为邮件，url（post), url(get) 而不应该用wechatGroup / wecomGroup来分类
       return 'wechatGroup';
     } else if (/qyapi\.weixin\.qq\.com/.test(targetAddress)) {
@@ -144,9 +147,7 @@ export class TransformerService {
       content = `${payload.repository.name} ${payload.object_attributes.title}
       当前责任人: ${
         payload.assignees
-          ? payload.assignees
-              .map((assignee) => assignee.name)
-              .join(',')
+          ? payload.assignees.map((assignee) => assignee.name).join(',')
           : ''
       }
 
@@ -171,12 +172,14 @@ export class TransformerService {
   }
 
   gitlabPipeline(payload: GitLabWebHooks.PipelineEvent) {
-    const content = `${payload.project.name}: ${payload.builds.map(build => build.stage + '(' + build.status + ')').join(' ')}`
+    const content = `${payload.project.name}: ${payload.builds
+      .map((build) => build.stage + '(' + build.status + ')')
+      .join(' ')}`;
 
     return {
       title: 'gitlab pipeline:',
-      content: this.trim(content)
-    }
+      content: this.trim(content),
+    };
   }
 
   githubPush(data: GithubWebHooks.WebhookPayloadPush): NotifyMessage {
